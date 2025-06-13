@@ -64,7 +64,7 @@ export default function ClientSuccessPath() {
             {steps.map((step, index) => (
               <div key={index} className={`flex flex-col lg:flex-row items-center lg:items-start ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                 <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-8 text-center lg:text-right' : 'lg:pl-8 text-center lg:text-left'} mb-8 lg:mb-0`}>
-                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-[#050A30] text-white rounded-full text-2xl font-bold mb-4 ${index % 2 === 0 ? 'lg:ml-auto' : 'lg:mr-auto'}`}>
+                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-[#141e5b] text-white rounded-full text-2xl font-bold mb-4 ${index % 2 === 0 ? 'lg:ml-auto' : 'lg:mr-auto'}`}>
                     {step.number}
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{step.title}</h3>
@@ -90,7 +90,7 @@ export default function ClientSuccessPath() {
           </p>
           <Button
             onClick={() => scrollToSection("contact")}
-            className="bg-[#050A30] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#050A30]/90 transition-colors inline-flex items-center"
+            className="bg-[#141e5b] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
           >
             Schedule Your Discovery Call
             <i className="fas fa-phone ml-2"></i>

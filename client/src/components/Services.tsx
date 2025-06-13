@@ -97,7 +97,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div key={index} className="bg-white p-8 rounded-lg shadow-sm">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-[#050A30] rounded-lg flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4">
                   <i className={`${service.icon} text-white text-xl`}></i>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">{service.title}</h3>
@@ -105,7 +105,7 @@ export default function Services() {
               <ul className="space-y-3 text-gray-700">
                 {service.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex items-start">
-                    <i className="fas fa-check text-[#050A30] mt-1 mr-3"></i>
+                    <i className="fas fa-check text-[#141e5b] mt-1 mr-3"></i>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -126,7 +126,7 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {insuranceSolutions.map((solution, index) => (
               <div key={index} className="text-center p-6">
-                <div className="w-16 h-16 bg-[#050A30] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-4">
                   <i className={`${solution.icon} text-white text-2xl`}></i>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">{solution.title}</h4>
@@ -142,7 +142,7 @@ export default function Services() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
             {clientTypes.map((client, index) => (
               <div key={index} className="text-center p-4 bg-white rounded-lg shadow-sm">
-                <i className={`${client.icon} text-[#050A30] text-2xl mb-2`}></i>
+                <i className={`${client.icon} text-[#141e5b] text-2xl mb-2`}></i>
                 <p className="text-sm font-medium text-gray-900">{client.label}</p>
               </div>
             ))}
@@ -150,7 +150,7 @@ export default function Services() {
 
           <Button
             onClick={() => scrollToSection("contact")}
-            className="bg-[#050A30] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#050A30]/90 transition-colors inline-flex items-center"
+            className="bg-[#141e5b] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
           >
             Book Discovery Call
             <i className="fas fa-arrow-right ml-2"></i>

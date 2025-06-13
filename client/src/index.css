@@ -13,19 +13,19 @@
   --card-foreground: hsl(0, 0%, 17%);
   --border: hsl(214, 32%, 91%);
   --input: hsl(214, 32%, 91%);
-  --primary: hsl(230, 91%, 11%);
+  --primary: hsl(232, 64%, 22%);
   --primary-foreground: hsl(0, 0%, 98%);
-  --secondary: hsl(230, 91%, 11%);
+  --secondary: hsl(232, 64%, 22%);
   --secondary-foreground: hsl(0, 0%, 98%);
   --accent: hsl(210, 40%, 96%);
   --accent-foreground: hsl(0, 0%, 17%);
   --destructive: hsl(0, 84.2%, 60.2%);
   --destructive-foreground: hsl(0, 0%, 98%);
-  --ring: hsl(230, 91%, 11%);
+  --ring: hsl(232, 64%, 22%);
   --radius: 0.5rem;
 
   /* Custom Navy Theme Colors */
-  --primary-navy: hsl(230, 91%, 11%);
+  --primary-navy: hsl(232, 64%, 22%);
   --text-color: hsl(0, 0%, 17%);
   --site-bg: hsl(0, 0%, 100%);
 }

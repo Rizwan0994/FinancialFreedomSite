@@ -186,7 +186,7 @@ export default function Contact() {
               <Button
                 type="submit"
                 disabled={contactMutation.isPending}
-                className="w-full bg-[#050A30] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#050A30]/90 transition-colors"
+                className="w-full bg-[#141e5b] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors"
               >
                 {contactMutation.isPending ? "Submitting..." : "Schedule My Discovery Call"}
                 <i className="fas fa-calendar-check ml-2"></i>
@@ -200,7 +200,7 @@ export default function Contact() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-[#050A30] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                     <i className="fas fa-phone text-white"></i>
                   </div>
                   <div>
@@ -209,7 +209,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-[#050A30] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                     <i className="fas fa-envelope text-white"></i>
                   </div>
                   <div>
@@ -218,7 +218,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-[#050A30] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                     <i className="fas fa-clock text-white"></i>
                   </div>
                   <div>
@@ -238,23 +238,23 @@ export default function Contact() {
               <h4 className="text-lg font-bold text-gray-900 mb-4">What to Expect from Your Discovery Call:</h4>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
-                  <i className="fas fa-check text-[#050A30] mt-1 mr-3 flex-shrink-0"></i>
+                  <i className="fas fa-check text-[#141e5b] mt-1 mr-3 flex-shrink-0"></i>
                   <span>30-minute complimentary consultation</span>
                 </li>
                 <li className="flex items-start">
-                  <i className="fas fa-check text-[#050A30] mt-1 mr-3 flex-shrink-0"></i>
+                  <i className="fas fa-check text-[#141e5b] mt-1 mr-3 flex-shrink-0"></i>
                   <span>Assessment of your current business and financial situation</span>
                 </li>
                 <li className="flex items-start">
-                  <i className="fas fa-check text-[#050A30] mt-1 mr-3 flex-shrink-0"></i>
+                  <i className="fas fa-check text-[#141e5b] mt-1 mr-3 flex-shrink-0"></i>
                   <span>Discussion of your goals and challenges</span>
                 </li>
                 <li className="flex items-start">
-                  <i className="fas fa-check text-[#050A30] mt-1 mr-3 flex-shrink-0"></i>
+                  <i className="fas fa-check text-[#141e5b] mt-1 mr-3 flex-shrink-0"></i>
                   <span>Overview of how the NEXT Framework can help</span>
                 </li>
                 <li className="flex items-start">
-                  <i className="fas fa-check text-[#050A30] mt-1 mr-3 flex-shrink-0"></i>
+                  <i className="fas fa-check text-[#141e5b] mt-1 mr-3 flex-shrink-0"></i>
                   <span>Next steps for your journey to financial freedom</span>
                 </li>
               </ul>

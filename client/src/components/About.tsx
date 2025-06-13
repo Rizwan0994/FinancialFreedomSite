@@ -75,7 +75,7 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value, index) => (
               <div key={index} className="text-center p-6 bg-white rounded-lg shadow-sm">
-                <div className="w-16 h-16 bg-[#050A30] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-4">
                   <i className={`${value.icon} text-white text-2xl`}></i>
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 mb-2">{value.title}</h4>

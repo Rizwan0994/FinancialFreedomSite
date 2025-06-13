@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
+import logo from '../assets/logo.jpg';
 
 // --- FONT AWESOME SCRIPT (for hamburger icon) ---
 // In a real application, you would typically add this script to your main index.html file.
 const FontAwesomeScript = () => {
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.src = "https://kit.fontawesome.com/a076d05399.js";
-        script.crossOrigin = "anonymous";
-        script.async = true;
-        document.head.appendChild(script);
-        return () => {
-            // Cleanup the script when the component unmounts
-            document.head.removeChild(script);
-        };
-    }, []);
-    return null; // This component doesn't render anything
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://kit.fontawesome.com/a076d05399.js";
+    script.crossOrigin = "anonymous";
+    script.async = true;
+    document.head.appendChild(script);
+    return () => {
+      // Cleanup the script when the component unmounts
+      document.head.removeChild(script);
+    };
+  }, []);
+  return null; // This component doesn't render anything
 };
 
 
@@ -32,7 +33,7 @@ export default function Navigation() {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section[id]");
       // The offset is adjusted to account for the height of the two-tier fixed navigation
-      const scrollPosition = window.pageYOffset + 140; 
+      const scrollPosition = window.pageYOffset + 140;
 
       let currentSection = "";
       sections.forEach((section) => {
@@ -46,8 +47,8 @@ export default function Navigation() {
           currentSection = sectionId;
         }
       });
-      
-      if(currentSection) {
+
+      if (currentSection) {
         setActiveSection(currentSection);
       } else if (window.pageYOffset < 200) {
         // Default to home if at the top of the page
@@ -57,8 +58,8 @@ export default function Navigation() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     // Run once on mount to set initial state
-    handleScroll(); 
-    
+    handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -118,10 +119,19 @@ export default function Navigation() {
       <nav className="bg-white shadow-sm fixed w-full top-0 z-50">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center items-center h-20 relative">
-            
+
             {/* Logo and Title Section - Centered */}
             <div className="flex items-center space-x-4">
-              {/* A simple text-based representation of the logo */}
+              <img
+                src={logo}
+                alt="John Smith Logo"
+               className="h-24 md:h-20 w-auto"
+              />
+              <h1 className="text-xl md:text-2xl font-serif text-gray-800 tracking-wider">
+                Your Lifestyle Navigator
+              </h1>
+            </div>
+            {/* <div className="flex items-center space-x-4">          
               <div className="text-center font-semibold leading-tight text-gray-600 text-sm">
                 JOHN
                 <div className="w-full h-px bg-gray-400 my-0.5"></div>
@@ -130,7 +140,7 @@ export default function Navigation() {
               <h1 className="text-xl md:text-2xl font-serif text-gray-800 tracking-wider">
                 Your Lifestyle Navigator
               </h1>
-            </div>
+            </div> */}
 
             {/* Mobile Menu Button - Positioned to the right */}
             <div className="absolute right-4 top-1/2 -translate-y-1/2 lg:hidden">
@@ -144,7 +154,7 @@ export default function Navigation() {
             </div>
           </div>
         </div>
-        
+
         {/* Mobile Navigation Menu (collapsible) */}
         {isMenuOpen && (
           <div className="lg:hidden bg-white border-t border-gray-200">
@@ -153,11 +163,10 @@ export default function Navigation() {
                 <button
                   key={item.id}
                   onClick={() => handleNavigation(item)}
-                  className={`block w-full text-left px-3 py-3 text-base font-medium rounded-md transition-colors ${
-                    activeSection === item.id
+                  className={`block w-full text-left px-3 py-3 text-base font-medium rounded-md transition-colors ${activeSection === item.id
                       ? "bg-gray-100 text-gray-900 font-semibold"
                       : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </button>
@@ -173,17 +182,16 @@ export default function Navigation() {
           <div className="flex justify-center items-center h-14">
             <div className="flex items-center space-x-5">
               {navItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => handleNavigation(item)}
-                    className={`px-2 py-2 text-xs font-bold uppercase tracking-wider transition-colors duration-300 ease-in-out focus:outline-none ${
-                      activeSection === item.id
-                        ? "text-gray-900 border-b-2 border-gray-900"
-                        : "text-gray-500 hover:text-gray-900"
+                <button
+                  key={item.id}
+                  onClick={() => handleNavigation(item)}
+                  className={`px-2 py-2 text-xs font-bold uppercase tracking-wider transition-colors duration-300 ease-in-out focus:outline-none ${activeSection === item.id
+                      ? "text-gray-900 border-b-2 border-gray-900"
+                      : "text-gray-500 hover:text-gray-900"
                     }`}
-                  >
-                    {item.label}
-                  </button>
+                >
+                  {item.label}
+                </button>
               ))}
             </div>
           </div>

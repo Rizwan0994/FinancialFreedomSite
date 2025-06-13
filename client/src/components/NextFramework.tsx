@@ -50,15 +50,15 @@ export default function NextFramework() {
         <div className="flex justify-center mb-16">
           <div className="relative w-96 h-96">
             {/* Circular Framework Diagram */}
-            <div className="absolute inset-0 border-8 border-[#050A30] rounded-full flex items-center justify-center">
+            <div className="absolute inset-0 border-8 border-[#141e5b] rounded-full flex items-center justify-center">
               <div className="text-center">
-                <h3 className="text-2xl font-bold text-[#050A30]">The NEXT</h3>
+                <h3 className="text-2xl font-bold text-[#141e5b]">The NEXT</h3>
                 <p className="text-lg text-gray-700">Framework™</p>
               </div>
             </div>
             
             {/* N - Navigate */}
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#050A30] text-white rounded-full w-20 h-20 flex items-center justify-center text-2xl font-bold">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#141e5b] text-white rounded-full w-20 h-20 flex items-center justify-center text-2xl font-bold">
               N
             </div>
             <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 text-center">
@@ -67,7 +67,7 @@ export default function NextFramework() {
             </div>
 
             {/* E - Elevate */}
-            <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-[#050A30] text-white rounded-full w-20 h-20 flex items-center justify-center text-2xl font-bold">
+            <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-[#141e5b] text-white rounded-full w-20 h-20 flex items-center justify-center text-2xl font-bold">
               E
             </div>
             <div className="absolute top-1/2 -right-20 transform -translate-y-1/2 text-center">
@@ -76,7 +76,7 @@ export default function NextFramework() {
             </div>
 
             {/* X - eXit */}
-            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-[#050A30] text-white rounded-full w-20 h-20 flex items-center justify-center text-2xl font-bold">
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-[#141e5b] text-white rounded-full w-20 h-20 flex items-center justify-center text-2xl font-bold">
               X
             </div>
             <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 text-center">
@@ -85,7 +85,7 @@ export default function NextFramework() {
             </div>
 
             {/* T - Transfer */}
-            <div className="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-[#050A30] text-white rounded-full w-20 h-20 flex items-center justify-center text-2xl font-bold">
+            <div className="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-[#141e5b] text-white rounded-full w-20 h-20 flex items-center justify-center text-2xl font-bold">
               T
             </div>
             <div className="absolute top-1/2 -left-20 transform -translate-y-1/2 text-center">
@@ -99,7 +99,7 @@ export default function NextFramework() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {frameworkItems.map((item, index) => (
             <div key={index} className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="w-16 h-16 bg-[#050A30] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-4">
                 <i className={`${item.icon} text-white text-2xl`}></i>
               </div>
               <h4 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h4>
@@ -116,7 +116,7 @@ export default function NextFramework() {
           </p>
           <Button
             onClick={() => scrollToSection("contact")}
-            className="bg-[#050A30] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#050A30]/90 transition-colors inline-flex items-center"
+            className="bg-[#141e5b] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
           >
             Book My NEXT Strategy Session
             <i className="fas fa-calendar-check ml-2"></i>

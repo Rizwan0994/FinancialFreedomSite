@@ -43,7 +43,7 @@ export default function StartHere() {
     <div className="min-h-screen">
       <Navigation />
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#050A30] via-[#0A1245] to-[#050A30] text-white py-24 mt-[136px]">
+      <section className="relative bg-gradient-to-br from-[#141e5b] via-[#0A1245] to-[#141e5b] text-white py-24 mt-[136px]">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
@@ -57,7 +57,7 @@ export default function StartHere() {
           </p>
           <Button 
             onClick={scrollToBooking}
-            className="bg-white text-[#050A30] px-12 py-6 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
+            className="bg-white text-[#141e5b] px-12 py-6 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
           >
             Book My NEXT Strategy Session
             <i className="fas fa-calendar-check ml-3"></i>
@@ -89,25 +89,25 @@ export default function StartHere() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">In this call, we'll explore:</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <div className="w-8 h-8 bg-[#050A30] rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 bg-[#141e5b] rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
                     <i className="fas fa-map-marker-alt text-white text-sm"></i>
                   </div>
                   <span className="text-gray-700 text-lg">Where are you in your business and wealth journey</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="w-8 h-8 bg-[#050A30] rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 bg-[#141e5b] rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
                     <i className="fas fa-bullseye text-white text-sm"></i>
                   </div>
                   <span className="text-gray-700 text-lg">Your goals for growth, wealth building, exit, and legacy</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="w-8 h-8 bg-[#050A30] rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 bg-[#141e5b] rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
                     <i className="fas fa-search text-white text-sm"></i>
                   </div>
                   <span className="text-gray-700 text-lg">The gaps and opportunities in your current strategy</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="w-8 h-8 bg-[#050A30] rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 bg-[#141e5b] rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
                     <i className="fas fa-rocket text-white text-sm"></i>
                   </div>
                   <span className="text-gray-700 text-lg">How the NEXT Framework™ can help you achieve lasting success</span>
@@ -119,7 +119,7 @@ export default function StartHere() {
               <p className="text-gray-600 mb-6">
                 No obligation. No hard sell. Just a meaningful conversation about your NEXT steps.
               </p>
-              <div className="w-16 h-16 bg-[#050A30] rounded-full flex items-center justify-center mx-auto">
+              <div className="w-16 h-16 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto">
                 <i className="fas fa-handshake text-white text-2xl"></i>
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function StartHere() {
           <div className="text-center">
             <Button 
               onClick={scrollToBooking}
-              className="bg-[#050A30] text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-[#050A30]/90 transition-colors inline-flex items-center"
+              className="bg-[#141e5b] text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
             >
               Book My NEXT Strategy Session
               <i className="fas fa-calendar-check ml-3"></i>
@@ -149,13 +149,13 @@ export default function StartHere() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
             {expectationSteps.map((step, index) => (
               <div key={index} className="text-center relative">
-                <div className="w-20 h-20 bg-[#050A30] rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-white text-2xl font-bold">{step.step}</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{step.title}</h3>
                 <p className="text-gray-600">{step.description}</p>
                 {index < expectationSteps.length - 1 && (
-                  <div className="hidden md:block absolute top-10 -right-4 w-8 h-0.5 bg-[#050A30]"></div>
+                  <div className="hidden md:block absolute top-10 -right-4 w-8 h-0.5 bg-[#141e5b]"></div>
                 )}
               </div>
             ))}
@@ -164,7 +164,7 @@ export default function StartHere() {
           <div className="text-center">
             <Button 
               onClick={scrollToBooking}
-              className="bg-[#050A30] text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-[#050A30]/90 transition-colors inline-flex items-center"
+              className="bg-[#141e5b] text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
             >
               Book My NEXT Strategy Session
               <i className="fas fa-calendar-check ml-3"></i>
@@ -185,7 +185,7 @@ export default function StartHere() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-gray-50 p-8 rounded-lg text-center">
-                <div className="w-16 h-16 bg-[#050A30] rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-6">
                   <i className="fas fa-quote-left text-white text-xl"></i>
                 </div>
                 <p className="text-gray-700 italic text-lg leading-relaxed">
@@ -198,7 +198,7 @@ export default function StartHere() {
       </section>
 
       {/* Final CTA Section */}
-      <section id="booking-section" className="py-20 bg-gradient-to-br from-[#050A30] via-[#0A1245] to-[#050A30] text-white">
+      <section id="booking-section" className="py-20 bg-gradient-to-br from-[#141e5b] via-[#0A1245] to-[#141e5b] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
             Are You Ready to Plan What's NEXT?
@@ -215,7 +215,7 @@ export default function StartHere() {
             </p>
           </div>
           
-          <Button className="bg-white text-[#050A30] px-16 py-6 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center">
+          <Button className="bg-white text-[#141e5b] px-16 py-6 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center">
             Book My NEXT Strategy Session
             <i className="fas fa-calendar-check ml-3"></i>
           </Button>

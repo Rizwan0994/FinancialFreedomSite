@@ -99,7 +99,7 @@ export default function PathToFreedom() {
           {challenges.map((challenge, index) => (
             <div key={index} className="bg-gray-50 p-8 rounded-lg">
               <div className="flex items-center mb-4">
-                <span className="bg-[#050A30] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">
+                <span className="bg-[#141e5b] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">
                   {challenge.number}
                 </span>
                 <h4 className="text-xl font-semibold text-gray-900">{challenge.title}</h4>
@@ -114,7 +114,7 @@ export default function PathToFreedom() {
         </div>
 
         {/* Solution CTA */}
-        <div className="bg-[#050A30] rounded-lg p-8 text-center text-white">
+        <div className="bg-[#141e5b] rounded-lg p-8 text-center text-white">
           <h3 className="text-2xl font-bold mb-4">There Is a Better Way</h3>
           <p className="text-lg mb-6 opacity-90">
             At Your Lifestyle Navigator™, we understand these challenges because we've faced them ourselves. 
@@ -122,7 +122,7 @@ export default function PathToFreedom() {
           </p>
           <Button
             onClick={() => scrollToSection("next-framework")}
-            className="bg-white text-[#050A30] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
+            className="bg-white text-[#141e5b] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
           >
             Discover the NEXT Framework
             <i className="fas fa-arrow-right ml-2"></i>

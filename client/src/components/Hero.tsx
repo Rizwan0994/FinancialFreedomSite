@@ -15,7 +15,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative overflow-hidden" style={{ paddingTop: '136px', background: 'linear-gradient(135deg, #050A30 0%, #1a2260 100%)' }}>
+    <section id="home" className="relative overflow-hidden" style={{ paddingTop: '136px', background: 'linear-gradient(135deg, #141e5b 0%, #141e5b 100%)' }}>
       {/* Wave Shape at Bottom */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden">
         <svg className="relative block w-full h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -44,14 +44,14 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 onClick={() => scrollToSection("contact")}
-                className="bg-white text-[#050A30] px-8 py-4 rounded text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center"
+                className="bg-white text-[#141e5b] px-8 py-4 rounded text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center"
               >
                 SIGN ME UP NOW
               </Button>
               <Button
                 onClick={() => scrollToSection("contact")}
                 variant="outline"
-                className="border-2 bg-bg-white border-white text-white px-8 py-4 rounded text-lg font-semibold hover:bg-white hover:text-[#050A30] transition-colors inline-flex items-center justify-center"
+                className="border-2 bg-bg-white border-white text-white px-8 py-4 rounded text-lg font-semibold hover:bg-white hover:text-[#141e5b] transition-colors inline-flex items-center justify-center"
               >
                 Book My NEXT Strategy Session
               </Button>
