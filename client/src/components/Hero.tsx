@@ -42,12 +42,7 @@ export default function Hero() {
               personal wealth, and lasting legacy through our proprietary NEXT Framework™.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                onClick={() => scrollToSection("contact")}
-                className="bg-white text-[#141e5b] px-8 py-4 rounded text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center"
-              >
-                SIGN ME UP NOW
-              </Button>
+         
               <Button
                 onClick={() => scrollToSection("contact")}
                 variant="outline"

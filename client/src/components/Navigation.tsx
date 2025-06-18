@@ -2,22 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
 import logo from '../assets/logo.jpg';
 
-// --- FONT AWESOME SCRIPT (for hamburger icon) ---
-// In a real application, you would typically add this script to your main index.html file.
-const FontAwesomeScript = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "https://kit.fontawesome.com/a076d05399.js";
-    script.crossOrigin = "anonymous";
-    script.async = true;
-    document.head.appendChild(script);
-    return () => {
-      // Cleanup the script when the component unmounts
-      document.head.removeChild(script);
-    };
-  }, []);
-  return null; // This component doesn't render anything
-};
+// FontAwesome icons are now loaded via CDN in index.html
+// No need for dynamic script loading
 
 
 // The main navigation component, designed to match the provided image.
@@ -74,8 +60,8 @@ export default function Navigation() {
   }, [location]);
 
   // Function to handle both page navigation and section scrolling
-  const handleNavigation = (item) => {
-    if (item.type === "page") {
+  const handleNavigation = (item: { id: string; href?: string; type?: string; path?: string }) => {
+    if (item.type === "page" && item.path) {
       // Navigate to separate page
       setLocation(item.path);
       setIsMenuOpen(false);
@@ -86,7 +72,7 @@ export default function Navigation() {
   };
 
   // Function to smoothly scroll to a specific section on the page
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       // Offset accounts for the combined height of the fixed navigation bars
@@ -114,7 +100,6 @@ export default function Navigation() {
 
   return (
     <>
-      <FontAwesomeScript />
       {/* --- Top Navigation Bar (Logo & Title) --- */}
       <nav className="bg-white shadow-sm fixed w-full top-0 z-50">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">

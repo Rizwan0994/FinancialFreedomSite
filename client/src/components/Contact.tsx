@@ -60,9 +60,25 @@ export default function Contact() {
     },
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
     
+  //   // Basic validation
+  //   if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim()) {
+  //     toast({
+  //       title: "Validation Error",
+  //       description: "Please fill in all required fields.",
+  //       variant: "destructive",
+  //     });
+  //     return;
+  //   }
+
+  //   contactMutation.mutate(formData);
+  // };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     // Basic validation
     if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim()) {
       toast({
@@ -73,7 +89,45 @@ export default function Contact() {
       return;
     }
 
-    contactMutation.mutate(formData);
+    try {
+      const response = await fetch("/wp-content/themes/my-react-theme/ghl-proxy.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        toast({
+          title: "Success!",
+          description: "Your message has been submitted.",
+        });
+
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          businessType: "",
+          currentStage: "",
+          message: "",
+        });
+      } else {
+          console.log("error", result?.error);
+        throw new Error(result?.error || "Unknown error");
+
+      }
+    } catch (error: any) {
+      console.log("error", error);
+      toast({
+        title: "Error",
+        description: error.message || "Something went wrong.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
