@@ -66,8 +66,17 @@ export default function Navigation() {
       setLocation(item.path);
       setIsMenuOpen(false);
     } else {
-      // Scroll to section on current page
-      scrollToSection(item.id);
+      // If we're not on home page and trying to navigate to a section, go to home first
+      if (location !== "/") {
+        setLocation("/");
+        // Wait a bit for the page to load, then scroll to section
+        setTimeout(() => {
+          scrollToSection(item.id);
+        }, 100);
+      } else {
+        // Already on home page, just scroll to section
+        scrollToSection(item.id);
+      }
     }
   };
 
@@ -111,6 +120,10 @@ export default function Navigation() {
                 src={logo}
                 alt="John Smith Logo"
                className="h-24 md:h-20 w-auto"
+               loading="eager"
+               decoding="async"
+               width="80"
+               height="80"
               />
               <h1 className="text-xl md:text-2xl font-serif text-gray-800 tracking-wider">
                 Your Lifestyle Navigator

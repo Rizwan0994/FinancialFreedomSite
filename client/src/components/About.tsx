@@ -44,6 +44,10 @@ export default function About() {
               src={jhonImage}
               alt="John S. Smith Jr., RN, BSN - Healthcare Entrepreneur and Financial Expert"
               className="rounded-lg shadow-lg w-full max-w-md mx-auto"
+              loading="lazy"
+              decoding="async"
+              width="400"
+              height="500"
             />
           </div>
           <div>

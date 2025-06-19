@@ -90,6 +90,10 @@ export default function PathToFreedom() {
               src={client3}
               alt="Healthcare entrepreneur reviewing financial planning documents"
               className="rounded-lg shadow-lg w-full"
+              loading="lazy"
+              decoding="async"
+              width="500"
+              height="400"
             />
           </div>
         </div>

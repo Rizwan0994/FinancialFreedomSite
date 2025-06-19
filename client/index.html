@@ -8,13 +8,25 @@
     <meta property="og:title" content="Your Lifestyle Navigator™ - Healthcare Entrepreneur Financial Freedom">
     <meta property="og:description" content="Navigate business growth, elevate wealth, plan your exit, and transfer your legacy with our proven NEXT Framework™ for healthcare entrepreneurs.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="/src/assets/logo.jpg">
+    <meta name="theme-color" content="#141e5b">
+    
+    <!-- Preconnect to external domains for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Load fonts with display=swap for better performance -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Defer FontAwesome loading as it's not critical for initial render -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"></noscript>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+    <!-- Defer replit script as it's not essential -->
+    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js" defer></script>
   </body>
 </html>

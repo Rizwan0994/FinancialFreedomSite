@@ -1,5 +1,10 @@
 import { Button } from "@/components/ui/button";
-
+import disscoveryCall from "@/assets/call.png";
+import nextFrameWork from "@/assets/framework.png";
+import successCall from "@/assets/success.png";
+import group from "@/assets/group3.png";
+import sign from "@/assets/sign.png";
+import headshot from "@/assets/headshot.png";
 export default function ClientSuccessPath() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -17,25 +22,25 @@ export default function ClientSuccessPath() {
       number: "1",
       title: "Discovery Call",
       description: "We start with a complimentary 30-minute call to understand your goals, challenges, and where you are in your business and financial journey.",
-      image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400"
+      image: disscoveryCall
     },
     {
       number: "2",
       title: "Comprehensive Assessment",
       description: "Next, we conduct a deep-dive evaluation of your business, personal finances, and legacy aspirations — creating a clear picture of your current state and future possibilities.",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400"
+      image: sign
     },
     {
       number: "3",
       title: "NEXT Roadmap Planning",
       description: "We develop your personalized NEXT Roadmap — a cohesive strategy that connects your business growth, personal wealth building, exit planning, and legacy creation.",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400"
+      image: nextFrameWork
     },
     {
       number: "4",
       title: "Implementation Partnership",
       description: "Together, we implement your roadmap — providing expert guidance and ongoing support across your NEXT journey. This may include business consulting, financial planning, strategic insurance solutions, and more.",
-      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400"
+      image: group
     },
     {
       number: "5",
@@ -75,6 +80,10 @@ export default function ClientSuccessPath() {
                     src={step.image}
                     alt={`${step.title} visualization`}
                     className="rounded-lg shadow-lg w-full"
+                    loading="lazy"
+                    decoding="async"
+                    width="500"
+                    height="300"
                   />
                 </div>
               </div>

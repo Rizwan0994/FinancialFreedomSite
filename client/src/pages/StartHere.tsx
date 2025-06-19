@@ -1,13 +1,32 @@
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useLocation } from "wouter";
 
 export default function StartHere() {
+  const [, setLocation] = useLocation();
+
   const scrollToBooking = () => {
     const bookingSection = document.getElementById('booking-section');
     if (bookingSection) {
       bookingSection.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const navigateToContact = () => {
+    // Navigate to home page first
+    setLocation("/");
+    // Wait for navigation to complete, then scroll to contact section
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        const offsetTop = contactSection.offsetTop - 136;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth",
+        });
+      }
+    }, 100);
   };
 
   const testimonials = [
@@ -56,7 +75,7 @@ export default function StartHere() {
             Schedule your complimentary NEXT Strategy Session with Your Lifestyle Navigator™ today.
           </p>
           <Button 
-            onClick={scrollToBooking}
+            onClick={navigateToContact}
             className="bg-white text-[#141e5b] px-12 py-6 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
           >
             Book My NEXT Strategy Session
@@ -127,7 +146,7 @@ export default function StartHere() {
 
           <div className="text-center">
             <Button 
-              onClick={scrollToBooking}
+              onClick={navigateToContact}
               className="bg-[#141e5b] text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
             >
               Book My NEXT Strategy Session
@@ -163,7 +182,7 @@ export default function StartHere() {
 
           <div className="text-center">
             <Button 
-              onClick={scrollToBooking}
+              onClick={navigateToContact}
               className="bg-[#141e5b] text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
             >
               Book My NEXT Strategy Session
@@ -215,7 +234,10 @@ export default function StartHere() {
             </p>
           </div>
           
-          <Button className="bg-white text-[#141e5b] px-16 py-6 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center">
+          <Button 
+            onClick={navigateToContact}
+            className="bg-white text-[#141e5b] px-16 py-6 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
+          >
             Book My NEXT Strategy Session
             <i className="fas fa-calendar-check ml-3"></i>
           </Button>

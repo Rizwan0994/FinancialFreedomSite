@@ -90,7 +90,7 @@ export default function Contact() {
     }
 
     try {
-      const response = await fetch("/wp-content/themes/my-react-theme/ghl-proxy.php", {
+      const response = await fetch("https://0bd.44a.myftpupload.com/wp-json/ghl/v1/submit/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

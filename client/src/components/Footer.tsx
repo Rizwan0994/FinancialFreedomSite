@@ -1,5 +1,24 @@
 import logo from '../assets/logo-white.jpg';
+import { useLocation } from 'wouter';
+
 export default function Footer() {
+  const [location, setLocation] = useLocation();
+  
+  // Function to handle both same-page scrolling and cross-page navigation
+  const handleNavigation = (sectionId: string) => {
+    if (location === '/') {
+      // If already on home page, just scroll to section
+      scrollToSection(sectionId);
+    } else {
+      // If on a different page, navigate to home page first
+      setLocation('/');
+      // Small delay to ensure page navigation completes before scrolling
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 100);
+    }
+  };
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -9,6 +28,10 @@ export default function Footer() {
         behavior: "smooth",
       });
     }
+  };
+
+  const navigateToPage = (path: string) => {
+    setLocation(path);
   };
 
   return (
@@ -22,20 +45,42 @@ export default function Footer() {
               src={logo}
               alt="Your Lifestyle Navigator Logo"
               className="h-16 w-auto mb-4"
+              loading="lazy"
+              decoding="async"
+              width="64"
+              height="64"
             />
             <p className="text-gray-400 mb-6 max-w-md">
               Empowering healthcare and behavioral health entrepreneurs to achieve business growth, 
               personal wealth, and lasting legacy through our proprietary NEXT Framework™.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-[#141e5b] rounded-full flex items-center justify-center hover:bg-[#141e5b]/90 transition-colors">
+              <a 
+                href="https://www.linkedin.com/in/johnssmithjr" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-[#0077b5] rounded-full flex items-center justify-center hover:bg-[#0077b5]/90 transition-colors"
+                aria-label="LinkedIn Profile"
+              >
                 <i className="fab fa-linkedin text-white"></i>
               </a>
-              <a href="#" className="w-10 h-10 bg-[#141e5b] rounded-full flex items-center justify-center hover:bg-[#141e5b]/90 transition-colors">
-                <i className="fab fa-twitter text-white"></i>
-              </a>
-              <a href="#" className="w-10 h-10 bg-[#141e5b] rounded-full flex items-center justify-center hover:bg-[#141e5b]/90 transition-colors">
+              <a 
+                href="https://www.facebook.com/john.s.smith.587/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-[#1877f2] rounded-full flex items-center justify-center hover:bg-[#1877f2]/90 transition-colors"
+                aria-label="Facebook Profile"
+              >
                 <i className="fab fa-facebook text-white"></i>
+              </a>
+              <a 
+                href="https://www.amazon.com/stores/John-S.-Smith-Jr.-RN/author/B0C66RX7JD?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-[#ff9900] rounded-full flex items-center justify-center hover:bg-[#ff9900]/90 transition-colors"
+                aria-label="Amazon Author Page"
+              >
+                <i className="fab fa-amazon text-white"></i>
               </a>
             </div>
           </div>
@@ -45,7 +90,7 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li>
                 <button 
-                  onClick={() => scrollToSection("about")} 
+                  onClick={() => handleNavigation("about")} 
                   className="hover:text-white transition-colors text-left"
                 >
                   About John
@@ -53,7 +98,7 @@ export default function Footer() {
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection("next-framework")} 
+                  onClick={() => handleNavigation("next-framework")} 
                   className="hover:text-white transition-colors text-left"
                 >
                   NEXT Framework
@@ -61,7 +106,7 @@ export default function Footer() {
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection("services")} 
+                  onClick={() => handleNavigation("services")} 
                   className="hover:text-white transition-colors text-left"
                 >
                   Services
@@ -69,7 +114,7 @@ export default function Footer() {
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection("resources")} 
+                  onClick={() => handleNavigation("resources")} 
                   className="hover:text-white transition-colors text-left"
                 >
                   Resources
@@ -77,10 +122,18 @@ export default function Footer() {
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection("contact")} 
+                  onClick={() => handleNavigation("contact")} 
                   className="hover:text-white transition-colors text-left"
                 >
                   Start Here
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigateToPage("/faq")} 
+                  className="hover:text-white transition-colors text-left"
+                >
+                  FAQ
                 </button>
               </li>
             </ul>
@@ -93,7 +146,7 @@ export default function Footer() {
               <li>john@yourlifestylenavigator.com</li>
               <li>
                 <button 
-                  onClick={() => scrollToSection("contact")} 
+                  onClick={() => handleNavigation("contact")} 
                   className="text-[#141e5b] hover:text-[#141e5b]/80 transition-colors font-semibold"
                 >
                   Schedule Discovery Call
