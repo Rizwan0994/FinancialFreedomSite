@@ -54,19 +54,19 @@ export default function Hero() {
           </div>
 
           {/* Right Image */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              <img 
-                src={RightImage}
-                alt="John S. Smith Jr., RN, BSN - Healthcare Entrepreneur and Financial Expert"
-                className="w-full max-w-md h-auto object-contain"
-                loading="eager"
-                decoding="async"
-                width="400"
-                height="500"
-              />
-            </div>
-          </div>
+      <div className="flex justify-center lg:justify-end">
+  <div className="relative">
+    <img 
+      src={RightImage}
+      alt="John S. Smith Jr., RN, BSN - Healthcare Entrepreneur and Financial Expert"
+      className="w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-contain"
+      loading="eager"
+      decoding="async"
+      width="400"
+      height="500"
+    />
+  </div>
+</div>
         </div>
       </div>
     </section>

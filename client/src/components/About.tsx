@@ -1,4 +1,4 @@
-import jhonImage from "@/assets/image.jpg"
+import jhonImage from "@/assets/image2.png"
 export default function About() {
   const values = [
     {

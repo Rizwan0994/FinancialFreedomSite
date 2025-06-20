@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
 import logo from '../assets/logo.jpg';
-
+import { FaBars, FaTimes } from 'react-icons/fa';
 // FontAwesome icons are now loaded via CDN in index.html
 // No need for dynamic script loading
 
@@ -110,48 +110,39 @@ export default function Navigation() {
   return (
     <>
       {/* --- Top Navigation Bar (Logo & Title) --- */}
-      <nav className="bg-white shadow-sm fixed w-full top-0 z-50">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center items-center h-20 relative">
+      <nav className="bg-white shadow-sm fixed w-full top-0 z-50 overflow-x-hidden">
+       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="relative h-20 flex items-center justify-between lg:justify-center">
 
-            {/* Logo and Title Section - Centered */}
-            <div className="flex items-center space-x-4">
-              <img
-                src={logo}
-                alt="John Smith Logo"
-               className="h-24 md:h-20 w-auto"
-               loading="eager"
-               decoding="async"
-               width="80"
-               height="80"
-              />
-              <h1 className="text-xl md:text-2xl font-serif text-gray-800 tracking-wider">
-                Your Lifestyle Navigator
-              </h1>
-            </div>
-            {/* <div className="flex items-center space-x-4">          
-              <div className="text-center font-semibold leading-tight text-gray-600 text-sm">
-                JOHN
-                <div className="w-full h-px bg-gray-400 my-0.5"></div>
-                SMITH
-              </div>
-              <h1 className="text-xl md:text-2xl font-serif text-gray-800 tracking-wider">
-                Your Lifestyle Navigator
-              </h1>
-            </div> */}
+    {/* Logo + Title: left on mobile, centered on desktop */}
+    <div className="flex items-center space-x-3 absolute left-2 lg:relative lg:left-0">
+      <img
+        src={logo}
+        alt="John Smith Logo"
+        className="h-16 sm:h-20 w-auto"
+        loading="eager"
+        decoding="async"
+        width="64"
+        height="64"
+      />
+      <h1 className="text-base sm:text-xl md:text-2xl font-serif text-gray-800 tracking-wider text-left lg:text-center">
+        Your Lifestyle Navigator
+      </h1>
+    </div>
 
-            {/* Mobile Menu Button - Positioned to the right */}
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 lg:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-blue-900 focus:outline-none p-2 rounded-md"
-                aria-label="Toggle menu"
-              >
-                <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
-              </button>
-            </div>
-          </div>
-        </div>
+    {/* Hamburger Icon: visible only on mobile (top-right) */}
+    <div className="absolute right-4 top-1/2 -translate-y-1/2 lg:hidden">
+      <button
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        className="text-gray-700 hover:text-blue-900 focus:outline-none p-2 rounded-md"
+        aria-label="Toggle menu"
+      >
+        {isMenuOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
+      </button>
+    </div>
+  </div>
+</div>
+
 
         {/* Mobile Navigation Menu (collapsible) */}
         {isMenuOpen && (

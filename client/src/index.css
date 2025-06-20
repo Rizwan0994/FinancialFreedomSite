@@ -28,6 +28,10 @@
   --primary-navy: hsl(232, 64%, 22%);
   --text-color: hsl(0, 0%, 17%);
   --site-bg: hsl(0, 0%, 100%);
+
+  /* Added for navbar styling */
+  --primary-blue: hsl(232, 64%, 22%);
+  --secondary-blue: hsl(232, 60%, 30%);
 }
 
 .dark {
@@ -59,12 +63,16 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased bg-background text-foreground overflow-x-hidden;
     font-family: 'Inter', sans-serif;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  nav {
+    @apply w-full overflow-x-hidden;
   }
 }
 
@@ -72,25 +80,25 @@
   .primary-blue {
     background-color: var(--primary-blue);
   }
-  
+
   .text-primary-blue {
     color: var(--primary-blue);
   }
-  
+
   .border-primary-blue {
     border-color: var(--primary-blue);
   }
-  
+
   .hover\:bg-secondary-blue:hover {
     background-color: var(--secondary-blue);
   }
-  
+
   .next-framework-circle {
     position: relative;
     width: 384px;
     height: 384px;
   }
-  
+
   .framework-node {
     position: absolute;
     width: 80px;
@@ -104,10 +112,19 @@
     font-size: 24px;
     font-weight: bold;
   }
-  
+
   .framework-label {
     position: absolute;
     text-align: center;
     font-weight: 600;
+  }
+
+  /* Optional: Mobile nav animation helpers */
+  .mobile-nav-enter {
+    @apply transition-all duration-300 ease-in-out transform translate-x-0 opacity-100;
+  }
+
+  .mobile-nav-exit {
+    @apply transition-all duration-300 ease-in-out transform -translate-x-full opacity-0;
   }
 }

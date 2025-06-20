@@ -1,24 +1,30 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-    },
+      '@': resolve(__dirname, 'client/src')
+    }
   },
-  root: path.resolve(import.meta.dirname, "client"),
+  root: 'client',
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist"),
+    outDir: '../dist',
     emptyOutDir: true,
+    sourcemap: false,
+    minify: 'esbuild',
+    chunkSizeWarningLimit: 1000,
+    target: 'esnext',
+    cssCodeSplit: true
   },
   server: {
-    fs: {
-      strict: true,
-      deny: ["**/.*"],
-    },
+    port: 5173,
+    host: true
   },
-});
+  esbuild: {
+    target: 'esnext',
+    platform: 'browser'
+  }
+})

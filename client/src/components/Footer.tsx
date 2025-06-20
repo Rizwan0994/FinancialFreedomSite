@@ -1,6 +1,6 @@
 import logo from '../assets/logo-white.jpg';
 import { useLocation } from 'wouter';
-
+import { FaLinkedinIn, FaFacebookF, FaAmazon } from 'react-icons/fa';
 export default function Footer() {
   const [location, setLocation] = useLocation();
   
@@ -62,7 +62,7 @@ export default function Footer() {
                 className="w-10 h-10 bg-[#0077b5] rounded-full flex items-center justify-center hover:bg-[#0077b5]/90 transition-colors"
                 aria-label="LinkedIn Profile"
               >
-                <i className="fab fa-linkedin text-white"></i>
+             <FaLinkedinIn className="text-white" />
               </a>
               <a 
                 href="https://www.facebook.com/john.s.smith.587/" 
@@ -71,7 +71,7 @@ export default function Footer() {
                 className="w-10 h-10 bg-[#1877f2] rounded-full flex items-center justify-center hover:bg-[#1877f2]/90 transition-colors"
                 aria-label="Facebook Profile"
               >
-                <i className="fab fa-facebook text-white"></i>
+               <FaFacebookF className="text-white" />
               </a>
               <a 
                 href="https://www.amazon.com/stores/John-S.-Smith-Jr.-RN/author/B0C66RX7JD?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true" 
@@ -80,7 +80,7 @@ export default function Footer() {
                 className="w-10 h-10 bg-[#ff9900] rounded-full flex items-center justify-center hover:bg-[#ff9900]/90 transition-colors"
                 aria-label="Amazon Author Page"
               >
-                <i className="fab fa-amazon text-white"></i>
+               <FaAmazon className="text-white" />
               </a>
             </div>
           </div>
