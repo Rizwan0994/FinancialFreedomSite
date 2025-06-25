@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { FaCompass, FaChartLine, FaDoorOpen, FaTree, FaShieldAlt, FaClinicMedical, FaHospital, FaBrain, FaUserTie, FaLaptopMedical, FaCheck, FaArrowRight } from 'react-icons/fa';
+import { FaCompass, FaChartLine, FaDoorOpen, FaTree, FaShieldAlt, FaCheck, FaArrowRight } from 'react-icons/fa';
 
 export default function Services() {
   const scrollToSection = (sectionId: string) => {
@@ -74,14 +74,6 @@ export default function Services() {
       title: "Navigate & eXit",
       description: "Protect your business continuity with disability coverage and funded buy-sell arrangements."
     }
-  ];
-
-  const clientTypes = [
-    { icon: FaClinicMedical, label: "Private Practice Owners" },
-    { icon: FaHospital, label: "Clinic & Healthcare Business Owners" },
-    { icon: FaBrain, label: "Behavioral Health Entrepreneurs" },
-    { icon: FaUserTie, label: "Healthcare Executives & Consultants" },
-    { icon: FaLaptopMedical, label: "Healthcare Technology Founders" }
   ];
 
   return (
@@ -161,58 +153,6 @@ export default function Services() {
                 </div>
               );
             })}
-          </div>
-        </div>
-
-        {/* Who We Serve */}
-        <div className="text-center">
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">Who We Serve</h3>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            We specialize in working with healthcare and behavioral health entrepreneurs at every stage of their journey.
-          </p>
-          
-          {/* First Row - 3 items */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6 justify-items-center">
-            {clientTypes.slice(0, 3).map((client, index) => {
-              const IconComponent = client.icon;
-              return (
-                <div key={index} className="group text-center p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-[#141e5b]/20 transition-all duration-300 hover:-translate-y-1 w-full max-w-xs">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#141e5b] to-[#1a2b6b] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="text-white text-2xl" />
-                  </div>
-                  <p className="text-sm font-semibold text-gray-900 group-hover:text-[#141e5b] transition-colors duration-300">{client.label}</p>
-                </div>
-              );
-            })}
-          </div>
-          
-          {/* Second Row - 2 items */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center max-w-2xl mx-auto">
-            {clientTypes.slice(3, 5).map((client, index) => {
-              const IconComponent = client.icon;
-              return (
-                <div key={index + 3} className="group text-center p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-[#141e5b]/20 transition-all duration-300 hover:-translate-y-1 w-full max-w-xs">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#141e5b] to-[#1a2b6b] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="text-white text-2xl" />
-                  </div>
-                  <p className="text-sm font-semibold text-gray-900 group-hover:text-[#141e5b] transition-colors duration-300">{client.label}</p>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="bg-gradient-to-r from-[#141e5b] to-[#1a2b6b] rounded-xl p-8 text-white text-center">
-            <h4 className="text-2xl font-bold mb-4">Ready to Transform Your Healthcare Business?</h4>
-            <p className="text-lg mb-6 opacity-90">
-              Let's discuss how our comprehensive approach can help you navigate growth, build wealth, and create a lasting legacy.
-            </p>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="bg-white text-[#141e5b] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 inline-flex items-center shadow-lg"
-            >
-              Book Your Discovery Call
-              <FaArrowRight className="ml-2" />
-            </Button>
           </div>
         </div>
       </div>

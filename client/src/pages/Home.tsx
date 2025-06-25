@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import WhoWeServe from "@/components/WhoWeServe";
 import PathToFreedom from "@/components/PathToFreedom";
 import NextFramework from "@/components/NextFramework";
 import ClientSuccessPath from "@/components/ClientSuccessPath";
@@ -15,6 +16,7 @@ export default function Home() {
       <Navigation />
       <Hero />
       <About />
+      <WhoWeServe />
       <PathToFreedom />
       <NextFramework />
       <ClientSuccessPath />

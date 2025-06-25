@@ -77,16 +77,34 @@ export default function About() {
         {/* Values Section */}
         <div className="mt-20">
           <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">Our Core Values</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {values.map((value, index) => {
+          
+          {/* First Row - 3 items */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6 justify-items-center">
+            {values.slice(0, 3).map((value, index) => {
               const IconComponent = value.icon;
               return (
-                <div key={index} className="text-center p-6 bg-white rounded-lg shadow-sm">
-                  <div className="w-16 h-16 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div key={index} className="group text-center p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-[#141e5b]/20 transition-all duration-300 hover:-translate-y-1 w-full max-w-xs">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#141e5b] to-[#1a2b6b] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     <IconComponent className="text-white text-2xl" />
                   </div>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-2">{value.title}</h4>
-                  <p className="text-gray-600">{value.description}</p>
+                  <h4 className="text-xl font-semibold text-gray-900 group-hover:text-[#141e5b] transition-colors duration-300 mb-2">{value.title}</h4>
+                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                </div>
+              );
+            })}
+          </div>
+          
+          {/* Second Row - 2 items */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center max-w-2xl mx-auto">
+            {values.slice(3, 5).map((value, index) => {
+              const IconComponent = value.icon;
+              return (
+                <div key={index + 3} className="group text-center p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-[#141e5b]/20 transition-all duration-300 hover:-translate-y-1 w-full max-w-xs">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#141e5b] to-[#1a2b6b] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <IconComponent className="text-white text-2xl" />
+                  </div>
+                  <h4 className="text-xl font-semibold text-gray-900 group-hover:text-[#141e5b] transition-colors duration-300 mb-2">{value.title}</h4>
+                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
                 </div>
               );
             })}
