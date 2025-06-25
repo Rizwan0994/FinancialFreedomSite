@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
+import { FaArrowRight, FaQuestionCircle, FaCalendarAlt } from 'react-icons/fa';
 
 export default function FAQ() {
   const [, setLocation] = useLocation();
@@ -121,13 +122,12 @@ export default function FAQ() {
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto mb-8">
               Get answers to common questions about our NEXT Framework™ and how we help healthcare entrepreneurs achieve financial freedom.
-            </p>
-            <Button
+            </p>            <Button
               onClick={navigateToContact}
               className="bg-white text-[#141e5b] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
             >
               Still Have Questions? Contact Us
-              <i className="fas fa-arrow-right ml-2"></i>
+              <FaArrowRight className="ml-2" />
             </Button>
           </div>
         </section>
@@ -143,9 +143,8 @@ export default function FAQ() {
                 <div className="space-y-6">
                   {category.questions.map((faq, faqIndex) => (
                     <div key={faqIndex} className="bg-white rounded-lg shadow-sm border border-gray-200">
-                      <div className="p-6">
-                        <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-start">
-                          <i className="fas fa-question-circle text-[#141e5b] mr-3 mt-1 flex-shrink-0"></i>
+                      <div className="p-6">                        <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-start">
+                          <FaQuestionCircle className="text-[#141e5b] mr-3 mt-1 flex-shrink-0" />
                           {faq.question}
                         </h3>
                         <div className="ml-8">
@@ -171,13 +170,12 @@ export default function FAQ() {
             <p className="text-xl text-white/90 mb-8">
               Don't let another day pass without taking action toward your financial goals. 
               Book your complimentary NEXT Strategy Session today.
-            </p>
-            <Button
+            </p>            <Button
               onClick={navigateToContact}
               className="bg-white text-[#141e5b] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
             >
               Book My NEXT Strategy Session
-              <i className="fas fa-calendar-alt ml-2"></i>
+              <FaCalendarAlt className="ml-2" />
             </Button>
           </div>
         </section>

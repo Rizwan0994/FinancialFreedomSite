@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaExclamationTriangle } from 'react-icons/fa';
 
 interface Props {
   children: React.ReactNode;
@@ -27,9 +28,8 @@ class ErrorBoundary extends React.Component<Props, State> {
     if (this.state.hasError) {
       return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
-          <div className="max-w-md w-full bg-white shadow-lg rounded-lg p-6 text-center">
-            <div className="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center">
-              <i className="fas fa-exclamation-triangle text-red-600 text-xl"></i>
+          <div className="max-w-md w-full bg-white shadow-lg rounded-lg p-6 text-center">            <div className="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center">
+              <FaExclamationTriangle className="text-red-600 text-xl" />
             </div>
             <h2 className="text-xl font-semibold text-gray-900 mb-2">
               Something went wrong

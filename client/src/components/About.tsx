@@ -1,28 +1,29 @@
 import jhonImage from "@/assets/image2.png"
+import { FaHandshake, FaRocket, FaTree, FaUsers, FaStar } from 'react-icons/fa'
 export default function About() {
   const values = [
     {
-      icon: "fas fa-handshake",
+      icon: FaHandshake,
       title: "Integrity",
       description: "We serve as trusted partners and always act in your best interest."
     },
     {
-      icon: "fas fa-rocket",
+      icon: FaRocket,
       title: "Empowerment",
       description: "We equip you with the knowledge and tools to make informed financial and business decisions."
     },
     {
-      icon: "fas fa-tree",
+      icon: FaTree,
       title: "Legacy",
       description: "We help you create impact that extends beyond your practice and into future generations."
     },
     {
-      icon: "fas fa-users",
+      icon: FaUsers,
       title: "Partnership",
       description: "We walk alongside you — as an advisor, mentor, and advocate — through every phase of your journey."
     },
     {
-      icon: "fas fa-star",
+      icon: FaStar,
       title: "Excellence",
       description: "We bring deep industry knowledge and continuous learning to deliver the highest level of service."
     }
@@ -77,15 +78,18 @@ export default function About() {
         <div className="mt-20">
           <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">Our Core Values</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-              <div key={index} className="text-center p-6 bg-white rounded-lg shadow-sm">
-                <div className="w-16 h-16 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i className={`${value.icon} text-white text-2xl`}></i>
+            {values.map((value, index) => {
+              const IconComponent = value.icon;
+              return (
+                <div key={index} className="text-center p-6 bg-white rounded-lg shadow-sm">
+                  <div className="w-16 h-16 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <IconComponent className="text-white text-2xl" />
+                  </div>
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2">{value.title}</h4>
+                  <p className="text-gray-600">{value.description}</p>
                 </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">{value.title}</h4>
-                <p className="text-gray-600">{value.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useLocation } from "wouter";
+import { FaCalendarCheck, FaMapMarkerAlt, FaBullseye, FaSearch, FaRocket, FaHandshake, FaQuoteLeft } from 'react-icons/fa';
 
 export default function StartHere() {
   const [, setLocation] = useLocation();
@@ -79,7 +80,7 @@ export default function StartHere() {
             className="bg-white text-[#141e5b] px-12 py-6 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
           >
             Book My NEXT Strategy Session
-            <i className="fas fa-calendar-check ml-3"></i>
+            <FaCalendarCheck className="ml-3" />
           </Button>
         </div>
         
@@ -109,25 +110,25 @@ export default function StartHere() {
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <div className="w-8 h-8 bg-[#141e5b] rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
-                    <i className="fas fa-map-marker-alt text-white text-sm"></i>
+                    <FaMapMarkerAlt className="text-white text-sm" />
                   </div>
                   <span className="text-gray-700 text-lg">Where are you in your business and wealth journey</span>
                 </li>
                 <li className="flex items-start">
                   <div className="w-8 h-8 bg-[#141e5b] rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
-                    <i className="fas fa-bullseye text-white text-sm"></i>
+                    <FaBullseye className="text-white text-sm" />
                   </div>
                   <span className="text-gray-700 text-lg">Your goals for growth, wealth building, exit, and legacy</span>
                 </li>
                 <li className="flex items-start">
                   <div className="w-8 h-8 bg-[#141e5b] rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
-                    <i className="fas fa-search text-white text-sm"></i>
+                    <FaSearch className="text-white text-sm" />
                   </div>
                   <span className="text-gray-700 text-lg">The gaps and opportunities in your current strategy</span>
                 </li>
                 <li className="flex items-start">
                   <div className="w-8 h-8 bg-[#141e5b] rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
-                    <i className="fas fa-rocket text-white text-sm"></i>
+                    <FaRocket className="text-white text-sm" />
                   </div>
                   <span className="text-gray-700 text-lg">How the NEXT Framework™ can help you achieve lasting success</span>
                 </li>
@@ -139,7 +140,7 @@ export default function StartHere() {
                 No obligation. No hard sell. Just a meaningful conversation about your NEXT steps.
               </p>
               <div className="w-16 h-16 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto">
-                <i className="fas fa-handshake text-white text-2xl"></i>
+                <FaHandshake className="text-white text-2xl" />
               </div>
             </div>
           </div>
@@ -150,7 +151,7 @@ export default function StartHere() {
               className="bg-[#141e5b] text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
             >
               Book My NEXT Strategy Session
-              <i className="fas fa-calendar-check ml-3"></i>
+              <FaCalendarCheck className="ml-3" />
             </Button>
           </div>
         </div>
@@ -186,7 +187,7 @@ export default function StartHere() {
               className="bg-[#141e5b] text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
             >
               Book My NEXT Strategy Session
-              <i className="fas fa-calendar-check ml-3"></i>
+              <FaCalendarCheck className="ml-3" />
             </Button>
           </div>
         </div>
@@ -205,7 +206,7 @@ export default function StartHere() {
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-gray-50 p-8 rounded-lg text-center">
                 <div className="w-16 h-16 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-quote-left text-white text-xl"></i>
+                  <FaQuoteLeft className="text-white text-xl" />
                 </div>
                 <p className="text-gray-700 italic text-lg leading-relaxed">
                   "{testimonial}"
@@ -239,7 +240,7 @@ export default function StartHere() {
             className="bg-white text-[#141e5b] px-16 py-6 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
           >
             Book My NEXT Strategy Session
-            <i className="fas fa-calendar-check ml-3"></i>
+            <FaCalendarCheck className="ml-3" />
           </Button>
         </div>
       </section>

@@ -5,6 +5,7 @@ import successCall from "@/assets/success.png";
 import group from "@/assets/group3.png";
 import sign from "@/assets/sign.png";
 import headshot from "@/assets/headshot.png";
+import { FaPhone } from 'react-icons/fa';
 export default function ClientSuccessPath() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -102,7 +103,7 @@ export default function ClientSuccessPath() {
             className="bg-[#141e5b] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
           >
             Schedule Your Discovery Call
-            <i className="fas fa-phone ml-2"></i>
+            <FaPhone className="ml-2" />
           </Button>
         </div>
       </div>

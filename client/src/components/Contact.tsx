@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+import { FaCalendarCheck, FaPhone, FaEnvelope, FaClock, FaCheck } from 'react-icons/fa';
 
 export default function Contact() {
   const { toast } = useToast();
@@ -243,7 +244,7 @@ export default function Contact() {
                 className="w-full bg-[#141e5b] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors"
               >
                 {contactMutation.isPending ? "Submitting..." : "Schedule My Discovery Call"}
-                <i className="fas fa-calendar-check ml-2"></i>
+                <FaCalendarCheck className="ml-2" />
               </Button>
             </form>
           </div>
@@ -255,7 +256,7 @@ export default function Contact() {
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                    <i className="fas fa-phone text-white"></i>
+                    <FaPhone className="text-white" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Phone</h4>
@@ -264,7 +265,7 @@ export default function Contact() {
                 </div>
                 <div className="flex items-start">
                   <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                    <i className="fas fa-envelope text-white"></i>
+                    <FaEnvelope className="text-white" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Email</h4>
@@ -273,7 +274,7 @@ export default function Contact() {
                 </div>
                 <div className="flex items-start">
                   <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                    <i className="fas fa-clock text-white"></i>
+                    <FaClock className="text-white" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Business Hours</h4>
@@ -292,23 +293,23 @@ export default function Contact() {
               <h4 className="text-lg font-bold text-gray-900 mb-4">What to Expect from Your Discovery Call:</h4>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
-                  <i className="fas fa-check text-[#141e5b] mt-1 mr-3 flex-shrink-0"></i>
+                  <FaCheck className="text-[#141e5b] mt-1 mr-3 flex-shrink-0" />
                   <span>30-minute complimentary consultation</span>
                 </li>
                 <li className="flex items-start">
-                  <i className="fas fa-check text-[#141e5b] mt-1 mr-3 flex-shrink-0"></i>
+                  <FaCheck className="text-[#141e5b] mt-1 mr-3 flex-shrink-0" />
                   <span>Assessment of your current business and financial situation</span>
                 </li>
                 <li className="flex items-start">
-                  <i className="fas fa-check text-[#141e5b] mt-1 mr-3 flex-shrink-0"></i>
+                  <FaCheck className="text-[#141e5b] mt-1 mr-3 flex-shrink-0" />
                   <span>Discussion of your goals and challenges</span>
                 </li>
                 <li className="flex items-start">
-                  <i className="fas fa-check text-[#141e5b] mt-1 mr-3 flex-shrink-0"></i>
+                  <FaCheck className="text-[#141e5b] mt-1 mr-3 flex-shrink-0" />
                   <span>Overview of how the NEXT Framework can help</span>
                 </li>
                 <li className="flex items-start">
-                  <i className="fas fa-check text-[#141e5b] mt-1 mr-3 flex-shrink-0"></i>
+                  <FaCheck className="text-[#141e5b] mt-1 mr-3 flex-shrink-0" />
                   <span>Next steps for your journey to financial freedom</span>
                 </li>
               </ul>

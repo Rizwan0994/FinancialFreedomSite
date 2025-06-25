@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { FaCompass, FaChartLine, FaDoorOpen, FaTree, FaCalendarCheck } from 'react-icons/fa';
 
 export default function NextFramework() {
   const scrollToSection = (sectionId: string) => {
@@ -14,22 +15,22 @@ export default function NextFramework() {
 
   const frameworkItems = [
     {
-      icon: "fas fa-compass",
+      icon: FaCompass,
       title: "Navigate Business Growth",
       description: "Scale your practice with confidence through strategic planning and growth optimization."
     },
     {
-      icon: "fas fa-chart-line",
+      icon: FaChartLine,
       title: "Elevate Wealth",
       description: "Build personal wealth through strategic planning and advanced insurance solutions."
     },
     {
-      icon: "fas fa-door-open",
+      icon: FaDoorOpen,
       title: "eXit Strategy",
       description: "Design an exit plan that honors your mission and maximizes value."
     },
     {
-      icon: "fas fa-tree",
+      icon: FaTree,
       title: "Transfer Legacy",
       description: "Create an enduring impact for your family and your community."
     }
@@ -97,15 +98,18 @@ export default function NextFramework() {
 
         {/* Framework Details */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-12">
-          {frameworkItems.map((item, index) => (
-            <div key={index} className="text-center p-4 sm:p-6 bg-white rounded-lg shadow-sm">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className={`${item.icon} text-white text-lg sm:text-2xl`}></i>
+          {frameworkItems.map((item, index) => {
+            const IconComponent = item.icon;
+            return (
+              <div key={index} className="text-center p-4 sm:p-6 bg-white rounded-lg shadow-sm">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <IconComponent className="text-white text-lg sm:text-2xl" />
+                </div>
+                <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{item.title}</h4>
+                <p className="text-sm sm:text-base text-gray-600">{item.description}</p>
               </div>
-              <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{item.title}</h4>
-              <p className="text-sm sm:text-base text-gray-600">{item.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* CTA */}
@@ -120,7 +124,7 @@ export default function NextFramework() {
           >
             <span className="hidden sm:inline">Book My NEXT Strategy Session</span>
             <span className="sm:hidden">Book Strategy Session</span>
-            <i className="fas fa-calendar-check ml-2"></i>
+            <FaCalendarCheck className="ml-2" />
           </Button>
         </div>
       </div>

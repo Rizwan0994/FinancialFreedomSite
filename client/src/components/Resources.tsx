@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { FaBookOpen, FaToolbox, FaGraduationCap, FaDownload, FaCalendar, FaExternalLinkAlt, FaChevronRight } from 'react-icons/fa';
+import { FaAmazon } from 'react-icons/fa';
 
 export default function Resources() {
   return (
@@ -15,7 +17,7 @@ export default function Resources() {
           {/* Books */}
           <div className="bg-white p-8 rounded-lg text-center shadow-sm">
             <div className="w-20 h-20 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-6">
-              <i className="fas fa-book-open text-white text-3xl"></i>
+              <FaBookOpen className="text-white text-3xl" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Books & Guides</h3>
             <p className="text-gray-600 mb-6">
@@ -27,37 +29,37 @@ export default function Resources() {
               rel="noopener noreferrer"
               className="inline-flex items-center text-[#141e5b] font-semibold hover:text-[#141e5b]/80 transition-colors bg-gray-50 px-4 py-2 rounded-md hover:bg-gray-100"
             >
-              <i className="fab fa-amazon mr-2"></i>
+              <FaAmazon className="mr-2" />
               View Books on Amazon 
-              <i className="fas fa-external-link-alt ml-2 text-sm"></i>
+              <FaExternalLinkAlt className="ml-2 text-sm" />
             </a>
           </div>
 
           {/* Success Kit */}
           <div className="bg-white p-8 rounded-lg text-center shadow-sm">
             <div className="w-20 h-20 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-6">
-              <i className="fas fa-toolbox text-white text-3xl"></i>
+              <FaToolbox className="text-white text-3xl" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Success Kit</h3>
             <p className="text-gray-600 mb-6">
               Essential tools, templates, and checklists to help you implement the NEXT Framework in your own healthcare business.
             </p>
             <a href="#" className="text-[#141e5b] font-semibold hover:text-[#141e5b]/80 transition-colors">
-              Download Kit <i className="fas fa-download ml-1"></i>
+              Download Kit <FaDownload className="ml-1" />
             </a>
           </div>
 
           {/* Trainings */}
           <div className="bg-white p-8 rounded-lg text-center shadow-sm">
             <div className="w-20 h-20 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-6">
-              <i className="fas fa-graduation-cap text-white text-3xl"></i>
+              <FaGraduationCap className="text-white text-3xl" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Trainings & Workshops</h3>
             <p className="text-gray-600 mb-6">
               Interactive training sessions and workshops designed specifically for healthcare entrepreneurs at every stage of growth.
             </p>
             <a href="#" className="text-[#141e5b] font-semibold hover:text-[#141e5b]/80 transition-colors">
-              View Schedule <i className="fas fa-calendar ml-1"></i>
+              View Schedule <FaCalendar className="ml-1" />
             </a>
           </div>
         </div>
@@ -70,7 +72,7 @@ export default function Resources() {
           </p>
           <Button className="bg-white text-[#141e5b] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center">
             Take Assessment Now
-            <i className="fas fa-chevron-right ml-2"></i>
+            <FaChevronRight className="ml-2" />
           </Button>
         </div> */}
       </div>
