@@ -1,14 +1,70 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useLocation } from "wouter";
-import { FaCalendarCheck, FaMapMarkerAlt, FaBullseye, FaSearch, FaRocket, FaHandshake, FaQuoteLeft } from 'react-icons/fa';
+import { FaCalendarCheck, FaMapMarkerAlt, FaBullseye, FaSearch, FaRocket, FaHandshake, FaQuoteLeft, FaPhone, FaEnvelope, FaClock, FaCheck } from 'react-icons/fa';
 
 export default function StartHere() {
   const [, setLocation] = useLocation();
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    businessType: "",
+    currentStage: "",
+    message: "",
+  });
+
+  // Preserve scroll position when component mounts
+  useEffect(() => {
+    // Get saved scroll position for this page
+    const savedScrollPosition = sessionStorage.getItem('startHere-scroll-position');
+    
+    if (savedScrollPosition) {
+      // Restore scroll position after a small delay to ensure page is rendered
+      setTimeout(() => {
+        window.scrollTo(0, parseInt(savedScrollPosition, 10));
+        // Clear the saved position after restoring
+        sessionStorage.removeItem('startHere-scroll-position');
+      }, 100);
+    }
+
+    // Save scroll position when user leaves the page
+    const saveScrollPosition = () => {
+      sessionStorage.setItem('startHere-scroll-position', window.scrollY.toString());
+    };
+
+    // Save scroll position on various events to handle SPA navigation
+    window.addEventListener('beforeunload', saveScrollPosition); // Page refresh/close
+    
+    // Save scroll position periodically during scrolling (throttled)
+    let scrollTimeout: NodeJS.Timeout;
+    const handleScroll = () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(saveScrollPosition, 150); // Throttle to avoid excessive saves
+    };
+    window.addEventListener('scroll', handleScroll);
+    
+    // Cleanup event listeners
+    return () => {
+      window.removeEventListener('beforeunload', saveScrollPosition);
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+      // Save scroll position when component unmounts (SPA navigation)
+      saveScrollPosition();
+    };
+  }, []);
 
   const scrollToBooking = () => {
-    const bookingSection = document.getElementById('booking-section');
+    const bookingSection = document.getElementById('booking-form');
     if (bookingSection) {
       bookingSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -28,6 +84,63 @@ export default function StartHere() {
         });
       }
     }, 100);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Basic validation
+    if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      const response = await fetch("https://0bd.44a.myftpupload.com/wp-json/ghl/v1/submit/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        toast({
+          title: "Success!",
+          description: "Your Discovery Call request has been submitted. We'll contact you soon!",
+        });
+
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          businessType: "",
+          currentStage: "",
+          message: "",
+        });
+      } else {
+        console.log("error", result?.error);
+        throw new Error(result?.error || "Unknown error");
+      }
+    } catch (error: any) {
+      console.log("error", error);
+      toast({
+        title: "Error",
+        description: error.message || "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
   };
 
   const testimonials = [
@@ -76,7 +189,7 @@ export default function StartHere() {
             Schedule your complimentary NEXT Strategy Session with Your Lifestyle Navigator™ today.
           </p>
           <Button 
-            onClick={navigateToContact}
+            onClick={scrollToBooking}
             className="bg-white text-[#141e5b] px-12 py-6 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
           >
             Book My NEXT Strategy Session
@@ -147,7 +260,7 @@ export default function StartHere() {
 
           <div className="text-center">
             <Button 
-              onClick={navigateToContact}
+              onClick={scrollToBooking}
               className="bg-[#141e5b] text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
             >
               Book My NEXT Strategy Session
@@ -183,12 +296,195 @@ export default function StartHere() {
 
           <div className="text-center">
             <Button 
-              onClick={navigateToContact}
+              onClick={scrollToBooking}
               className="bg-[#141e5b] text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
             >
               Book My NEXT Strategy Session
               <FaCalendarCheck className="ml-3" />
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Form Section */}
+      <section id="booking-form" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Schedule Your Discovery Call</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Ready to navigate what's NEXT for your healthcare business and financial future? 
+              Fill out the form below and we'll contact you to schedule your complimentary session.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <div className="bg-gray-50 p-8 rounded-xl shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Let's Get Started</h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <Label htmlFor="first-name">First Name *</Label>
+                    <Input
+                      id="first-name"
+                      type="text"
+                      required
+                      value={formData.firstName}
+                      onChange={(e) => handleInputChange("firstName", e.target.value)}
+                      className="mt-2"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="last-name">Last Name *</Label>
+                    <Input
+                      id="last-name"
+                      type="text"
+                      required
+                      value={formData.lastName}
+                      onChange={(e) => handleInputChange("lastName", e.target.value)}
+                      className="mt-2"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => handleInputChange("email", e.target.value)}
+                    className="mt-2"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="phone">Phone Number</Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange("phone", e.target.value)}
+                    className="mt-2"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="business-type">Type of Healthcare Business</Label>
+                  <Select value={formData.businessType} onValueChange={(value) => handleInputChange("businessType", value)}>
+                    <SelectTrigger className="mt-2">
+                      <SelectValue placeholder="Select your business type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="private-practice">Private Practice</SelectItem>
+                      <SelectItem value="clinic">Clinic/Healthcare Business</SelectItem>
+                      <SelectItem value="behavioral-health">Behavioral Health</SelectItem>
+                      <SelectItem value="healthcare-exec">Healthcare Executive/Consultant</SelectItem>
+                      <SelectItem value="healthtech">Healthcare Technology</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <Label htmlFor="current-stage">Current Business Stage</Label>
+                  <Select value={formData.currentStage} onValueChange={(value) => handleInputChange("currentStage", value)}>
+                    <SelectTrigger className="mt-2">
+                      <SelectValue placeholder="Select your current stage" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="startup">Starting/Early Stage</SelectItem>
+                      <SelectItem value="growth">Growth Phase</SelectItem>
+                      <SelectItem value="established">Established/Scaling</SelectItem>
+                      <SelectItem value="exit-planning">Planning Exit</SelectItem>
+                      <SelectItem value="legacy-focus">Legacy Building</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <Label htmlFor="message">What are your biggest challenges or goals?</Label>
+                  <Textarea
+                    id="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) => handleInputChange("message", e.target.value)}
+                    placeholder="Tell us about your current situation and what you'd like to achieve..."
+                    className="mt-2"
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  className="w-full bg-[#141e5b] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors"
+                >
+                  Schedule My Discovery Call
+                  <FaCalendarCheck className="ml-2" />
+                </Button>
+              </form>
+            </div>
+
+            {/* Contact Information */}
+            <div>
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
+                <div className="space-y-6">
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                      <FaPhone className="text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Phone</h4>
+                      <p className="text-gray-600">(555) 123-4567</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                      <FaEnvelope className="text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Email</h4>
+                      <p className="text-gray-600">john@yourlifestylenavigator.com</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                      <FaClock className="text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Business Hours</h4>
+                      <p className="text-gray-600">
+                        Monday - Friday: 9:00 AM - 6:00 PM<br />
+                        Saturday: By Appointment<br />
+                        Sunday: Closed
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* What to Expect */}
+              <div className="bg-gray-50 p-6 rounded-xl shadow-sm">
+                <h4 className="text-lg font-bold text-gray-900 mb-4">What to Expect from Your Discovery Call:</h4>
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-start">
+                    <FaCheck className="text-[#141e5b] mt-1 mr-3 flex-shrink-0" />
+                    <span>30-minute complimentary consultation</span>
+                  </li>
+                  <li className="flex items-start">
+                    <FaCheck className="text-[#141e5b] mt-1 mr-3 flex-shrink-0" />
+                    <span>Assessment of your current business and financial situation</span>
+                  </li>
+                  <li className="flex items-start">
+                    <FaCheck className="text-[#141e5b] mt-1 mr-3 flex-shrink-0" />
+                    <span>Discussion of your goals and challenges</span>
+                  </li>
+                  <li className="flex items-start">
+                    <FaCheck className="text-[#141e5b] mt-1 mr-3 flex-shrink-0" />
+                    <span>Overview of how the NEXT Framework can help</span>
+                  </li>
+                  <li className="flex items-start">
+                    <FaCheck className="text-[#141e5b] mt-1 mr-3 flex-shrink-0" />
+                    <span>Next steps for your journey to financial freedom</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -231,15 +527,15 @@ export default function StartHere() {
               Let's explore how you can elevate wealth, design your ideal exit, and build a lasting legacy.
             </p>
             <p className="text-lg text-white/80">
-              Schedule your complimentary NEXT Strategy Session today.
+              Use the form above to schedule your complimentary NEXT Strategy Session today.
             </p>
           </div>
           
           <Button 
-            onClick={navigateToContact}
+            onClick={scrollToBooking}
             className="bg-white text-[#141e5b] px-16 py-6 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
           >
-            Book My NEXT Strategy Session
+            Schedule My Session Now
             <FaCalendarCheck className="ml-3" />
           </Button>
         </div>
