@@ -62,7 +62,7 @@ export default function WhoWeServe() {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-16 text-center bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+        <div className="mt-16 text-center bg-white rounded-2xl p-8 shadow-md border border-gray-100">
           <h4 className="text-2xl font-bold text-gray-900 mb-4">
             Ready to Navigate What's NEXT for Your Healthcare Business?
           </h4>

@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { FaArrowRight, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { FaArrowRight, FaExclamationTriangle, FaCheckCircle, FaChevronDown } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
 export default function PathToFreedom() {
+  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -12,6 +15,18 @@ export default function PathToFreedom() {
         behavior: "smooth",
       });
     }
+  };
+
+  const toggleCard = (index: number) => {
+    setExpandedCards(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      return newSet;
+    });
   };
 
   const challenges = [
@@ -129,31 +144,83 @@ export default function PathToFreedom() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
+          style={{ 
+            gridAutoRows: 'min-content',
+            alignItems: 'start'
+          }}
         >
           {challenges.map((challenge, index) => (
             <motion.div 
               key={index} 
-              className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300 cursor-pointer overflow-hidden self-start"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
               viewport={{ once: true }}
-              whileHover={{ y: -2 }}
+              whileHover={{ y: -2, transition: { duration: 0.2 } }}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleCard(index);
+              }}
             >
-              <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-br from-[#141e5b] to-[#1a2b6b] text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4 text-lg shadow-lg">
-                  {challenge.number}
+              <div className="p-8">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center flex-1 min-w-0">
+                    <div className="bg-gradient-to-br from-[#141e5b] to-[#1a2b6b] text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4 text-lg shadow-lg flex-shrink-0">
+                      {challenge.number}
+                    </div>
+                    <h4 className="text-xl font-semibold text-gray-900 leading-tight">{challenge.title}</h4>
+                  </div>
+                  <motion.div
+                    animate={{ rotate: expandedCards.has(index) ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-[#141e5b] text-lg flex-shrink-0 ml-4"
+                  >
+                    <FaChevronDown />
+                  </motion.div>
                 </div>
-                <h4 className="text-xl font-semibold text-gray-900 leading-tight">{challenge.title}</h4>
+                
+                {/* Brief description when collapsed */}
+                {!expandedCards.has(index) && (
+                  <motion.p 
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 1 }}
+                    className="text-gray-600 text-sm"
+                  >
+                    Click to see the key challenges in this area
+                  </motion.p>
+                )}
+
+                {/* Expanded content */}
+                <AnimatePresence>
+                  {expandedCards.has(index) && (
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="mt-4">
+                        <ul className="text-gray-700 space-y-3">
+                          {challenge.points.map((point, pointIndex) => (
+                            <motion.li 
+                              key={pointIndex} 
+                              className="flex items-start"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.2, delay: pointIndex * 0.05 }}
+                            >
+                              <div className="w-2 h-2 bg-[#141e5b] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                              <span className="leading-relaxed">{point}</span>
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-              <ul className="text-gray-700 space-y-3">
-                {challenge.points.map((point, pointIndex) => (
-                  <li key={pointIndex} className="flex items-start">
-                    <div className="w-2 h-2 bg-[#141e5b] rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                    <span className="leading-relaxed">{point}</span>
-                  </li>
-                ))}
-              </ul>
             </motion.div>
           ))}
         </motion.div>
@@ -180,7 +247,7 @@ export default function PathToFreedom() {
           >
             <Button
               onClick={() => scrollToSection("next-framework")}
-              className="bg-white text-[#141e5b] px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition-all duration-300 inline-flex items-center shadow-lg hover:shadow-xl"
+              className="bg-white text-[#141e5b] px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition-all duration-300 inline-flex items-center shadow-md hover:shadow-lg"
             >
               Discover the NEXT Framework
               <FaArrowRight className="ml-3" />

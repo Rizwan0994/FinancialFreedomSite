@@ -101,7 +101,7 @@ export default function Hero() {
                 <Button
                   onClick={() => scrollToSection("contact")}
                   variant="outline"
-                  className="border-2 bg-bg-white border-white text-white px-8 py-4 rounded text-lg font-semibold hover:bg-white hover:text-[#141e5b] transition-all duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl"
+                  className="border-2 bg-bg-white border-white text-white px-8 py-4 rounded text-lg font-semibold hover:bg-white hover:text-[#141e5b] transition-all duration-300 inline-flex items-center justify-center shadow-md hover:shadow-lg"
                 >
                   Book My NEXT Strategy Session
                 </Button>

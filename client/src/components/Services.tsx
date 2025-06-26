@@ -98,7 +98,7 @@ export default function Services() {
               const IconComponent = service.icon;
               return (
                 <Accordion key={index} type="single" collapsible className="w-full">
-                  <AccordionItem value={`item-${index}`} className="bg-white rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 overflow-hidden">
+                  <AccordionItem value={`item-${index}`} className="bg-white rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 overflow-hidden">
                     <AccordionTrigger className="px-8 py-6 hover:no-underline group">
                       <div className="flex items-center w-full">
                         <div className="w-14 h-14 bg-gradient-to-br from-[#141e5b] to-[#1a2b6b] rounded-xl flex items-center justify-center mr-6 group-hover:scale-105 transition-transform duration-300">
