@@ -10,7 +10,7 @@ export default function WhoWeServe() {
   ];
 
   return (
-    <section id="who-we-serve" className="py-20 bg-gray-50">
+    <section id="who-we-serve" className="py-20 bg-gradient-to-br from-gray-100 to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h3 className="text-3xl font-bold text-gray-900 mb-4">Who We Serve</h3>

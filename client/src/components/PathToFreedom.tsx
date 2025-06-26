@@ -58,7 +58,7 @@ export default function PathToFreedom() {
   ];
 
   return (
-    <section id="path-to-freedom" className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section id="path-to-freedom" className="py-20 bg-gradient-to-br from-[#141e5b]/5 via-white to-[#141e5b]/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center mb-16"
