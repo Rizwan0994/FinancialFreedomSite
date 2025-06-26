@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
+import { motion } from 'framer-motion';
 import logo from '../assets/logo.jpg';
 import { FaBars, FaTimes } from 'react-icons/fa';
 // FontAwesome icons are now loaded via CDN in index.html
@@ -17,6 +18,11 @@ export default function Navigation() {
   // Note: This requires <section> elements with corresponding IDs on the page to work.
   useEffect(() => {
     const handleScroll = () => {
+      // Only run scroll detection on home page
+      if (location !== "/") {
+        return;
+      }
+
       const sections = document.querySelectorAll("section[id]");
       // The offset is adjusted to account for the height of the two-tier fixed navigation
       const scrollPosition = window.pageYOffset + 140;
@@ -43,19 +49,47 @@ export default function Navigation() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    // Run once on mount to set initial state
-    handleScroll();
+    // Run once on mount to set initial state (only if on home page)
+    if (location === "/") {
+      handleScroll();
+    }
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [location]);
 
   // Update active section based on current route
   useEffect(() => {
     if (location === "/start-here") {
       setActiveSection("start-here");
     } else if (location === "/") {
-      // If on home page, let scroll handler manage active section
-      setActiveSection("home");
+      // If on home page, let scroll handler manage active section initially
+      // The scroll handler will take over from here
+      const handleInitialScroll = () => {
+        const sections = document.querySelectorAll("section[id]");
+        const scrollPosition = window.pageYOffset + 140;
+
+        let currentSection = "";
+        sections.forEach((section) => {
+          const htmlSection = section as HTMLElement;
+          const sectionId = htmlSection.getAttribute("id") || "";
+
+          if (
+            scrollPosition >= htmlSection.offsetTop &&
+            scrollPosition < htmlSection.offsetTop + htmlSection.offsetHeight
+          ) {
+            currentSection = sectionId;
+          }
+        });
+
+        if (currentSection) {
+          setActiveSection(currentSection);
+        } else if (window.pageYOffset < 200) {
+          setActiveSection("home");
+        }
+      };
+
+      // Small delay to ensure page content is loaded
+      setTimeout(handleInitialScroll, 100);
     }
   }, [location]);
 
@@ -100,10 +134,12 @@ export default function Navigation() {
     { id: "home", label: "HOME" },
     { id: "about", label: "ABOUT JOHN" },
     { id: "path-to-freedom", label: "YOUR PATH TO FINANCIAL FREEDOM" },
+         { id: "next-framework", label: "THE NEXT FRAMEWORK" },
     { id: "client-success", label: "CLIENT SUCCESS PATH" },
+   
     { id: "services", label: "SERVICES" },
     { id: "resources", label: "RESOURCES" },
-    { id: "next-framework", label: "THE NEXT FRAMEWORK" },
+
     { id: "start-here", label: "START HERE", type: "page", path: "/start-here" },
   ];
 
@@ -169,17 +205,32 @@ export default function Navigation() {
       <div className="bg-white fixed w-full top-20 z-40 hidden lg:block border-b border-gray-200">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center items-center h-14">
-            <div className="flex items-center space-x-5">
+            <div className="flex items-center space-x-1 relative">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => handleNavigation(item)}
-                  className={`px-2 py-2 text-xs font-bold uppercase tracking-wider transition-colors duration-300 ease-in-out focus:outline-none ${activeSection === item.id
-                      ? "text-gray-900 border-b-2 border-gray-900"
+                  className={`relative px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors duration-300 ease-in-out focus:outline-none rounded-lg ${
+                    activeSection === item.id
+                      ? "text-white"
                       : "text-gray-500 hover:text-gray-900"
-                    }`}
+                  }`}
                 >
-                  {item.label}
+                  {activeSection === item.id && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute inset-0 bg-[#141e5b] rounded-lg"
+                      initial={false}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 25,
+                        mass: 0.8,
+                        duration: 0.6,
+                      }}
+                    />
+                  )}
+                  <span className="relative z-10">{item.label}</span>
                 </button>
               ))}
             </div>

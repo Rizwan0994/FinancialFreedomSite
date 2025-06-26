@@ -2,8 +2,10 @@ import { Button } from "@/components/ui/button";
 import disscoveryCall from "@/assets/call.png";
 import nextFrameWork from "@/assets/framework.png";
 import successCall from "@/assets/success.png";
-import group from "@/assets/group3.png";
-import sign from "@/assets/sign.png";
+import partnership from "@/assets/Implementation-Partnership.png";
+import assessment from "@/assets/Comprehensive-assessment.png";
+
+import optimization from "@/assets/Ongoing-Optimization.png";
 import headshot from "@/assets/headshot.png";
 import { FaPhone } from 'react-icons/fa';
 export default function ClientSuccessPath() {
@@ -29,7 +31,7 @@ export default function ClientSuccessPath() {
       number: "2",
       title: "Comprehensive Assessment",
       description: "Next, we conduct a deep-dive evaluation of your business, personal finances, and legacy aspirations — creating a clear picture of your current state and future possibilities.",
-      image: sign
+      image: assessment
     },
     {
       number: "3",
@@ -41,13 +43,13 @@ export default function ClientSuccessPath() {
       number: "4",
       title: "Implementation Partnership",
       description: "Together, we implement your roadmap — providing expert guidance and ongoing support across your NEXT journey. This may include business consulting, financial planning, strategic insurance solutions, and more.",
-      image: group
+      image: partnership
     },
     {
       number: "5",
       title: "Ongoing Optimization",
       description: "Your needs will evolve — and so will your plan. Through regular reviews and refinement, we ensure your strategy stays aligned with your vision and the changing healthcare landscape.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400"
+      image: optimization
     }
   ];
 
@@ -77,15 +79,20 @@ export default function ClientSuccessPath() {
                   <p className="text-gray-700">{step.description}</p>
                 </div>
                 <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pl-8' : 'lg:pr-8'}`}>
-                  <img 
-                    src={step.image}
-                    alt={`${step.title} visualization`}
-                    className="rounded-lg shadow-lg w-full"
-                    loading="lazy"
-                    decoding="async"
-                    width="500"
-                    height="300"
-                  />
+                  <div className="w-full max-w-sm mx-auto">
+                    <div className="bg-white rounded-lg shadow-lg p-4">
+                      <img 
+                        src={step.image}
+                        alt={`${step.title} visualization`}
+                        className="w-full h-auto object-contain rounded-md"
+                        loading="lazy"
+                        decoding="async"
+                        width="600"
+                        height="400"
+                        style={{ minHeight: '200px', maxHeight: '280px' }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}

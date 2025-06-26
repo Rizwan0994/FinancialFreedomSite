@@ -1,11 +1,18 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useLocation } from "wouter";
+import { useEffect } from "react";
 import { FaArrowRight, FaQuestionCircle, FaCalendarAlt } from 'react-icons/fa';
 
 export default function FAQ() {
   const [, setLocation] = useLocation();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const navigateToContact = () => {
     setLocation("/");
@@ -137,25 +144,32 @@ export default function FAQ() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {faqs.map((category, categoryIndex) => (
               <div key={categoryIndex} className="mb-12">
-                <h2 className="text-2xl font-bold text-gray-900 mb-8 border-b border-gray-200 pb-4">
+                <h2 className="text-2xl font-bold text-gray-900 mb-8 border-b border-gray-200 pb-4 flex items-center">
+                  <FaQuestionCircle className="text-[#141e5b] mr-3" />
                   {category.category}
                 </h2>
-                <div className="space-y-6">
+                <Accordion type="single" collapsible className="space-y-2">
                   {category.questions.map((faq, faqIndex) => (
-                    <div key={faqIndex} className="bg-white rounded-lg shadow-sm border border-gray-200">
-                      <div className="p-6">                        <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-start">
-                          <FaQuestionCircle className="text-[#141e5b] mr-3 mt-1 flex-shrink-0" />
+                    <AccordionItem 
+                      key={faqIndex} 
+                      value={`item-${categoryIndex}-${faqIndex}`}
+                      className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
+                    >
+                      <AccordionTrigger className="px-6 py-4 text-left hover:bg-gray-50 transition-colors [&[data-state=open]]:bg-gray-50">
+                        <span className="text-lg font-semibold text-gray-900 pr-4">
                           {faq.question}
-                        </h3>
-                        <div className="ml-8">
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent className="px-6 pb-6 pt-2">
+                        <div className="border-t border-gray-100 pt-4">
                           <p className="text-gray-700 leading-relaxed">
                             {faq.answer}
                           </p>
                         </div>
-                      </div>
-                    </div>
+                      </AccordionContent>
+                    </AccordionItem>
                   ))}
-                </div>
+                </Accordion>
               </div>
             ))}
           </div>
