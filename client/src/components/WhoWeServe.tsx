@@ -1,6 +1,18 @@
-import { FaClinicMedical, FaHospital, FaBrain, FaUserTie, FaLaptopMedical } from 'react-icons/fa';
+import { FaClinicMedical, FaHospital, FaBrain, FaUserTie, FaLaptopMedical, FaArrowRight, FaCalendarCheck } from 'react-icons/fa';
+import { Button } from "@/components/ui/button";
 
 export default function WhoWeServe() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop - 136;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   const clientTypes = [
     { icon: FaClinicMedical, label: "Private Practice Owners" },
     { icon: FaHospital, label: "Clinic & Healthcare Business Owners" },
@@ -46,6 +58,33 @@ export default function WhoWeServe() {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="mt-16 text-center bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+          <h4 className="text-2xl font-bold text-gray-900 mb-4">
+            Ready to Navigate What's NEXT for Your Healthcare Business?
+          </h4>
+          <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+            Whether you're just starting out or planning your exit, we're here to help you build both a successful practice and lasting personal wealth.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button
+              onClick={() => scrollToSection("contact")}
+              className="bg-[#141e5b] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
+            >
+              Schedule Your Discovery Call
+              <FaCalendarCheck className="ml-2" />
+            </Button>
+            <Button
+              onClick={() => scrollToSection("path-to-freedom")}
+              variant="outline"
+              className="border-[#141e5b] text-[#141e5b] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/5 transition-colors inline-flex items-center"
+            >
+              Learn Our Approach
+              <FaArrowRight className="ml-2" />
+            </Button>
           </div>
         </div>
       </div>
