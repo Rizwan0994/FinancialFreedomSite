@@ -1,5 +1,6 @@
-import jhonImage from "@/assets/image2.png"
-import { FaHandshake, FaRocket, FaTree, FaUsers, FaStar } from 'react-icons/fa'
+import client3 from "@/assets/FFreedom-client.png";
+import { FaHandshake, FaRocket, FaTree, FaUsers, FaStar } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 export default function About() {
   const values = [
     {
@@ -40,18 +41,31 @@ export default function About() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <img 
-              src={jhonImage}
-              alt="John S. Smith Jr., RN, BSN - Healthcare Entrepreneur and Financial Expert"
-              className="rounded-lg shadow-lg w-full max-w-md mx-auto"
-              loading="lazy"
-              decoding="async"
-              width="400"
-              height="500"
-            />
-          </div>
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative w-80 mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#141e5b]/10 to-transparent rounded-2xl transform rotate-2"></div>
+              <div className="relative bg-white rounded-2xl shadow-xl p-6">
+                <img 
+                  src={client3}
+                  alt="Healthcare entrepreneur and founder reviewing financial planning documents"
+                  className="w-full h-auto object-contain rounded-lg"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
             <h3 className="text-3xl font-bold text-gray-900 mb-4">John S. Smith Jr., RN, BSN</h3>
             <p className="text-lg text-primary-blue mb-6 font-semibold">
               "I've walked this path myself — and I'm passionate about helping other healthcare entrepreneurs do the same."
@@ -71,7 +85,7 @@ export default function About() {
                 bridge the gap between clinical success and personal financial freedom.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Values Section */}
