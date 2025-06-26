@@ -90,31 +90,31 @@ export default function PathToFreedom() {
             </p>
             
             <motion.div 
-              className="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-400 p-6 rounded-r-lg shadow-sm max-w-4xl mx-auto"
+              className="bg-gradient-to-r from-[#141e5b]/5 to-[#141e5b]/10 border-l-4 border-[#141e5b] p-6 rounded-r-lg shadow-sm max-w-4xl mx-auto"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: true }}
             >
               <div className="flex items-center justify-center mb-3">
-                <FaExclamationTriangle className="text-amber-600 text-xl mr-3" />
-                <p className="text-amber-800 font-semibold text-lg">Without proper guidance, many healthcare entrepreneurs:</p>
+                <FaExclamationTriangle className="text-[#141e5b] text-xl mr-3" />
+                <p className="text-[#141e5b] font-semibold text-lg">Without proper guidance, many healthcare entrepreneurs:</p>
               </div>
-              <ul className="space-y-3 text-amber-700 text-center">
+              <ul className="space-y-3 text-gray-700 text-center">
                 <li className="flex items-center justify-center">
-                  <span className="text-amber-500 mr-3">•</span>
+                  <span className="text-[#141e5b] mr-3">•</span>
                   <span>Burn out trying to scale without clarity</span>
                 </li>
                 <li className="flex items-center justify-center">
-                  <span className="text-amber-500 mr-3">•</span>
+                  <span className="text-[#141e5b] mr-3">•</span>
                   <span>Miss out on opportunities to build personal wealth</span>
                 </li>
                 <li className="flex items-center justify-center">
-                  <span className="text-amber-500 mr-3">•</span>
+                  <span className="text-[#141e5b] mr-3">•</span>
                   <span>Exit their businesses without maximizing value</span>
                 </li>
                 <li className="flex items-center justify-center">
-                  <span className="text-amber-500 mr-3">•</span>
+                  <span className="text-[#141e5b] mr-3">•</span>
                   <span>Fail to leave the legacy they envisioned</span>
                 </li>
               </ul>
