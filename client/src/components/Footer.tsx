@@ -142,8 +142,8 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-2 text-gray-400">
-              <li>(555) 123-4567</li>
-              <li>john@yourlifestylenavigator.com</li>
+              <li>202-866-2372</li>
+              <li>support@yourlifestylenavigator.com</li>
               <li>
                 <button 
                   onClick={() => handleNavigation("contact")} 

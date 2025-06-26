@@ -260,7 +260,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Phone</h4>
-                    <p className="text-gray-600">(555) 123-4567</p>
+                    <p className="text-gray-600">202-866-2372</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -269,7 +269,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Email</h4>
-                    <p className="text-gray-600">john@yourlifestylenavigator.com</p>
+                    <p className="text-gray-600">support@yourlifestylenavigator.com</p>
                   </div>
                 </div>
                 <div className="flex items-start">
