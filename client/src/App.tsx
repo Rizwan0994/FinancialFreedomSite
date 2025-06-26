@@ -7,6 +7,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import Home from "@/pages/Home";
 import StartHere from "@/pages/StartHere";
 import FAQ from "@/pages/FAQ";
+import Books from "@/pages/Books";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -15,6 +16,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/start-here" component={StartHere} />
       <Route path="/faq" component={FAQ} />
+      <Route path="/books" component={Books} />
       <Route component={NotFound} />
     </Switch>
   );

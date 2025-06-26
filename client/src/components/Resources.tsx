@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
 import { FaBookOpen, FaToolbox, FaGraduationCap, FaDownload, FaCalendar, FaExternalLinkAlt, FaChevronRight } from 'react-icons/fa';
-import { FaAmazon } from 'react-icons/fa';
 
 export default function Resources() {
+  const [, setLocation] = useLocation();
+
   return (
     <section id="resources" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,16 +25,14 @@ export default function Resources() {
             <p className="text-gray-600 mb-6">
               Comprehensive guides and resources to help you understand the fundamentals of healthcare business growth and wealth building.
             </p>
-            <a 
-              href="https://www.amazon.com/stores/John-S.-Smith-Jr.-RN/author/B0C66RX7JD?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-[#141e5b] font-semibold hover:text-[#141e5b]/80 transition-colors bg-gray-50 px-4 py-2 rounded-md hover:bg-gray-100"
+            <Button
+              onClick={() => setLocation("/books")}
+              className="bg-[#141e5b] text-white px-4 py-2 rounded-md hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
             >
-              <FaAmazon className="mr-2" />
-              View Books on Amazon 
-              <FaExternalLinkAlt className="ml-2 text-sm" />
-            </a>
+              <FaBookOpen className="mr-2" />
+              View Our Books
+              <FaChevronRight className="ml-2 text-sm" />
+            </Button>
           </div>
 
           {/* Success Kit */}
