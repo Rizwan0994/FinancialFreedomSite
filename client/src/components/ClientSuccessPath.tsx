@@ -111,7 +111,7 @@ export default function ClientSuccessPath() {
                         decoding="async"
                         width="600"
                         height="400"
-                        style={{ minHeight: '150px', maxHeight: '200px' }}
+                        // style={{ minHeight: '150px', maxHeight: '200px' }}
                         whileHover={{ scale: 1.1 }}
                         transition={{ 
                           type: "spring", 

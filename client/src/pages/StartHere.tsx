@@ -35,6 +35,18 @@ export default function StartHere() {
         // Clear the saved position after restoring
         sessionStorage.removeItem('startHere-scroll-position');
       }, 100);
+    } else {
+      // If no saved scroll position, scroll to the form section automatically
+      setTimeout(() => {
+        const formSection = document.getElementById('booking-form');
+        if (formSection) {
+          const offsetTop = formSection.offsetTop - 136; // Account for fixed navigation
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      }, 500); // Increased delay to ensure page is fully loaded
     }
 
     // Save scroll position when user leaves the page

@@ -99,6 +99,12 @@ export default function Navigation() {
       // Navigate to separate page
       setLocation(item.path);
       setIsMenuOpen(false);
+      
+      // If it's the start-here page, ensure we scroll to the booking form
+      if (item.path === "/start-here") {
+        // Clear any existing saved scroll position to ensure auto-scroll works
+        sessionStorage.removeItem('startHere-scroll-position');
+      }
     } else {
       // If we're not on home page and trying to navigate to a section, go to home first
       if (location !== "/") {

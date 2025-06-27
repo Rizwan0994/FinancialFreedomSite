@@ -56,7 +56,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://www.linkedin.com/in/johnssmithjr" 
+                href="https://www.linkedin.com/company/your-lifestyle-navigator%E2%84%A2/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-[#0077b5] rounded-full flex items-center justify-center hover:bg-[#0077b5]/90 transition-colors"
@@ -65,7 +65,7 @@ export default function Footer() {
              <FaLinkedinIn className="text-white" />
               </a>
               <a 
-                href="https://www.facebook.com/john.s.smith.587/" 
+                href="https://www.facebook.com/profile.php?id=61577297356709&sk=followers&notif_ids[0]=100010260252536&notif_ids[1]=100001513865544&notif_ids[2]=100008704626934&notif_ids[3]=100003259358405&notif_ids[4]=100000942233434&notif_ids[5]=100006072041754&notif_ids[6]=100003457792458&notif_ids[7]=100000234161887&notif_ids[8]=100001669985587&notif_ids[9]=100061615733704&notif_id=1750774751498660&notif_t=follow_profile&ref=notif" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-[#1877f2] rounded-full flex items-center justify-center hover:bg-[#1877f2]/90 transition-colors"

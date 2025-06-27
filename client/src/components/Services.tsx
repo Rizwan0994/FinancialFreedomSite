@@ -84,6 +84,21 @@ export default function Services() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             How We Help You Navigate Business Growth, Build Wealth, and Leave a Legacy
           </p>
+          
+          {/* Services Hero Image */}
+          <div className="flex justify-center mb-8">
+            <div className="w-full max-w-lg">
+              <img 
+                src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=400&q=80"
+                alt="Healthcare professionals in consultation - representing our comprehensive services"
+                className="w-full h-auto object-cover rounded-xl shadow-md border-2 border-[#141e5b]/20 hover:border-[#141e5b]/40 transition-colors duration-300 bg-white/50"
+                loading="lazy"
+                decoding="async"
+                style={{ aspectRatio: '500/400' }}
+              />
+            </div>
+          </div>
+          
           <div className="bg-gradient-to-r from-[#141e5b]/5 via-[#141e5b]/10 to-[#141e5b]/5 rounded-xl p-6 max-w-4xl mx-auto">
             <p className="text-lg text-gray-700 leading-relaxed">
               Our comprehensive approach covers every aspect of your entrepreneurial journey. Click on each service area below to explore how we can help you achieve your goals.
