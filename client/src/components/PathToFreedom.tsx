@@ -227,30 +227,31 @@ export default function PathToFreedom() {
 
         {/* Solution CTA */}
         <motion.div 
-          className="bg-gradient-to-r from-[#141e5b] to-[#1a2b6b] rounded-2xl p-8 text-center text-white shadow-2xl"
+          className="bg-gradient-to-r from-[#141e5b] to-[#1a2b6b] rounded-2xl p-6 sm:p-8 text-center text-white shadow-2xl"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center justify-center mb-4">
-            <FaCheckCircle className="text-green-400 text-3xl mr-3" />
-            <h3 className="text-3xl font-bold">There Is a Better Way</h3>
+          <div className="flex flex-col sm:flex-row items-center justify-center mb-4 sm:mb-4">
+            <FaCheckCircle className="text-green-400 text-2xl sm:text-3xl mb-2 sm:mb-0 sm:mr-3" />
+            <h3 className="text-2xl sm:text-3xl font-bold px-2">There Is a Better Way</h3>
           </div>
-          <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl mb-6 sm:mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed px-2">
             At Your Lifestyle Navigator™, we understand these challenges because we've faced them ourselves. 
             That's why we developed the NEXT Framework™ — a proven path to help healthcare entrepreneurs succeed.
           </p>
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            className="flex justify-center"
           >
             <Button
               onClick={() => scrollToSection("next-framework")}
-              className="bg-white text-[#141e5b] px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition-all duration-300 inline-flex items-center shadow-md hover:shadow-lg"
+              className="w-full sm:w-auto bg-white text-[#141e5b] px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-gray-100 transition-all duration-300 inline-flex items-center justify-center shadow-md hover:shadow-lg max-w-sm sm:max-w-none"
             >
-              Discover the NEXT Framework
-              <FaArrowRight className="ml-3" />
+              <span className="mr-2 sm:mr-3">Discover the NEXT Framework</span>
+              <FaArrowRight className="text-sm sm:text-base" />
             </Button>
           </motion.div>
         </motion.div>

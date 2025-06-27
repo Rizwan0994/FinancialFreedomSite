@@ -62,28 +62,28 @@ export default function WhoWeServe() {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-16 text-center bg-white rounded-2xl p-8 shadow-md border border-gray-100">
-          <h4 className="text-2xl font-bold text-gray-900 mb-4">
+        <div className="mt-16 text-center bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-gray-100">
+          <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 px-2">
             Ready to Navigate What's NEXT for Your Healthcare Business?
           </h4>
-          <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto px-2 leading-relaxed">
             Whether you're just starting out or planning your exit, we're here to help you build both a successful practice and lasting personal wealth.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center max-w-lg sm:max-w-none mx-auto">
             <Button
               onClick={() => scrollToSection("contact")}
-              className="bg-[#141e5b] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
+              className="w-full sm:w-auto bg-[#141e5b] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center justify-center"
             >
-              Schedule Your Discovery Call
-              <FaCalendarCheck className="ml-2" />
+              <span className="mr-2">Schedule Your Discovery Call</span>
+              <FaCalendarCheck className="text-sm sm:text-base" />
             </Button>
             <Button
               onClick={() => scrollToSection("path-to-freedom")}
               variant="outline"
-              className="border-[#141e5b] text-[#141e5b] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/5 transition-colors inline-flex items-center"
+              className="w-full sm:w-auto border-[#141e5b] text-[#141e5b] px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-[#141e5b]/5 transition-colors inline-flex items-center justify-center"
             >
-              Learn Our Approach
-              <FaArrowRight className="ml-2" />
+              <span className="mr-2">Learn Our Approach</span>
+              <FaArrowRight className="text-sm sm:text-base" />
             </Button>
           </div>
         </div>
