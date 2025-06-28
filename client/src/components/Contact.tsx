@@ -139,7 +139,7 @@ export default function Contact() {
     <section id="contact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Start Here</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Start Here</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Ready to navigate what's NEXT for your healthcare business and financial future? 
             Schedule your complimentary Discovery Call today.
@@ -149,7 +149,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-lg shadow-sm">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Schedule Your Discovery Call</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">Schedule Your Discovery Call</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -252,7 +252,7 @@ export default function Contact() {
           {/* Contact Information */}
           <div>
             <div className="mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
@@ -290,7 +290,7 @@ export default function Contact() {
 
             {/* What to Expect */}
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h4 className="text-lg font-bold text-gray-900 mb-4">What to Expect from Your Discovery Call:</h4>
+              <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-4">What to Expect from Your Discovery Call:</h4>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <FaCheck className="text-[#141e5b] mt-1 mr-3 flex-shrink-0" />

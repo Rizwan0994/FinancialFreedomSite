@@ -82,7 +82,7 @@ export default function PathToFreedom() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Your Path to Financial Freedom</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Your Path to Financial Freedom</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Why Healthcare Entrepreneurs Need a Different Kind of Guidance
           </p>
@@ -96,7 +96,7 @@ export default function PathToFreedom() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
               Building a healthcare business is hard. Building personal wealth while doing it is even harder.
             </h3>
             <p className="text-gray-700 mb-8 text-lg leading-relaxed max-w-4xl mx-auto">
@@ -169,7 +169,7 @@ export default function PathToFreedom() {
                     <div className="bg-gradient-to-br from-[#141e5b] to-[#1a2b6b] text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4 text-lg shadow-lg flex-shrink-0">
                       {challenge.number}
                     </div>
-                    <h4 className="text-xl font-semibold text-gray-900 leading-tight">{challenge.title}</h4>
+                    <h4 className="text-lg md:text-xl font-semibold text-gray-900 leading-tight">{challenge.title}</h4>
                   </div>
                   <motion.div
                     animate={{ rotate: expandedCards.has(index) ? 180 : 0 }}
@@ -235,7 +235,7 @@ export default function PathToFreedom() {
         >
           <div className="flex flex-col sm:flex-row items-center justify-center mb-4 sm:mb-4">
             <FaCheckCircle className="text-green-400 text-2xl sm:text-3xl mb-2 sm:mb-0 sm:mr-3" />
-            <h3 className="text-2xl sm:text-3xl font-bold px-2">There Is a Better Way</h3>
+            <h3 className="text-xl md:text-2xl font-bold px-2">There Is a Better Way</h3>
           </div>
           <p className="text-lg sm:text-xl mb-6 sm:mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed px-2">
             At Your Lifestyle Navigator™, we understand these challenges because we've faced them ourselves. 

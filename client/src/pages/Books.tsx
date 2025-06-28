@@ -101,7 +101,7 @@ export default function Books() {
               Back to Home
             </Button>
             <div className="text-center">
-              <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 Books & Guides
               </h1>
               <p className="text-xl text-white/90 max-w-3xl mx-auto">
@@ -132,7 +132,7 @@ export default function Books() {
                     {/* Book Details */}
                     <div className="lg:col-span-2 space-y-6">
                       <div>
-                        <h2 className="text-3xl font-bold text-gray-900 mb-2">{book.title}</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{book.title}</h2>
                         <p className="text-lg text-gray-600 flex items-center">
                           <FaUser className="mr-2" />
                           by {book.author}
@@ -167,7 +167,7 @@ export default function Books() {
 
                       {/* Features */}
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-3">What you'll learn:</h3>
+                        <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-3">What you'll learn:</h3>
                         <ul className="space-y-2">
                           {book.features.map((feature, index) => (
                             <li key={index} className="flex items-start text-gray-700">
@@ -202,7 +202,7 @@ export default function Books() {
         {/* CTA Section */}
         <section className="bg-[#141e5b] py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Ready to Implement What You've Learned?
             </h2>
             <p className="text-xl text-white/90 mb-8">

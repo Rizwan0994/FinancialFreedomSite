@@ -191,10 +191,10 @@ export default function StartHere() {
       <section className="relative bg-gradient-to-br from-[#141e5b] via-[#0A1245] to-[#141e5b] text-white py-24 mt-[136px]">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             START HERE
           </h1>
-          <h2 className="text-2xl md:text-3xl font-light mb-8 text-white/90">
+          <h2 className="text-xl md:text-2xl font-light mb-8 text-white/90">
             "Let's Explore What's NEXT for Your Business and Life"
           </h2>
           <p className="text-xl mb-12 text-white/80 max-w-3xl mx-auto">
@@ -221,7 +221,7 @@ export default function StartHere() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
               Why Start With a NEXT Strategy Session?
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
@@ -231,7 +231,7 @@ export default function StartHere() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">In this call, we'll explore:</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">In this call, we'll explore:</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <div className="w-8 h-8 bg-[#141e5b] rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
@@ -260,7 +260,7 @@ export default function StartHere() {
               </ul>
             </div>
             <div className="bg-gray-50 p-8 rounded-lg text-center">
-              <h4 className="text-xl font-bold text-gray-900 mb-4">No Pressure Promise</h4>
+              <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-4">No Pressure Promise</h4>
               <p className="text-gray-600 mb-6">
                 No obligation. No hard sell. Just a meaningful conversation about your NEXT steps.
               </p>
@@ -286,7 +286,7 @@ export default function StartHere() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
               What to Expect in Your Discovery Call
             </h2>
           </div>
@@ -297,7 +297,7 @@ export default function StartHere() {
                 <div className="w-20 h-20 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-white text-2xl font-bold">{step.step}</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{step.title}</h3>
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4">{step.title}</h3>
                 <p className="text-gray-600">{step.description}</p>
                 {index < expectationSteps.length - 1 && (
                   <div className="hidden md:block absolute top-10 -right-4 w-8 h-0.5 bg-[#141e5b]"></div>
@@ -434,7 +434,7 @@ export default function StartHere() {
             {/* Contact Information */}
             <div>
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
@@ -505,7 +505,7 @@ export default function StartHere() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
               What Clients Are Saying
             </h2>
           </div>

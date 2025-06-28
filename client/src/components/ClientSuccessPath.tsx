@@ -69,7 +69,7 @@ export default function ClientSuccessPath() {
     <section id="client-success" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Client Success Path</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Client Success Path</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             How We Work with You: A Clear, Transparent Process
           </p>
@@ -87,7 +87,7 @@ export default function ClientSuccessPath() {
                   <div className={`inline-flex items-center justify-center w-12 h-12 bg-[#141e5b] text-white rounded-full text-lg font-bold mb-3 ${index % 2 === 0 ? 'lg:ml-auto' : 'lg:mr-auto'}`}>
                     {step.number}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
                   <p className="text-gray-700 text-sm">{step.description}</p>
                 </div>
                 <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pl-4' : 'lg:pr-4'}`}>
@@ -129,7 +129,7 @@ export default function ClientSuccessPath() {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Begin Your Journey?</h3>
+          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Ready to Begin Your Journey?</h3>
           <p className="text-lg text-gray-600 mb-6">
             Let's map what's NEXT for your business and your life.
           </p>

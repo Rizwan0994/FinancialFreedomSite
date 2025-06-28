@@ -34,7 +34,7 @@ export default function About() {
     <section id="about" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Meet Our Founder</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Meet Our Founder</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Empowering Healthcare Entrepreneurs to Achieve Financial Freedom
           </p>
@@ -66,7 +66,7 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">John S. Smith Jr., RN, BSN</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">John S. Smith Jr., RN, BSN</h3>
             <p className="text-lg text-primary-blue mb-6 font-semibold">
               "I've walked this path myself — and I'm passionate about helping other healthcare entrepreneurs do the same."
             </p>
@@ -90,7 +90,7 @@ export default function About() {
 
         {/* Values Section */}
         <div className="mt-20">
-          <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">Our Core Values</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-12">Our Core Values</h3>
           
           {/* First Row - 3 items */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6 justify-items-center">
@@ -101,7 +101,7 @@ export default function About() {
                   <div className="w-16 h-16 bg-gradient-to-br from-[#141e5b] to-[#1a2b6b] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     <IconComponent className="text-white text-2xl" />
                   </div>
-                  <h4 className="text-xl font-semibold text-gray-900 group-hover:text-[#141e5b] transition-colors duration-300 mb-2">{value.title}</h4>
+                  <h4 className="text-lg md:text-xl font-semibold text-gray-900 group-hover:text-[#141e5b] transition-colors duration-300 mb-2">{value.title}</h4>
                   <p className="text-gray-600 leading-relaxed">{value.description}</p>
                 </div>
               );
@@ -117,7 +117,7 @@ export default function About() {
                   <div className="w-16 h-16 bg-gradient-to-br from-[#141e5b] to-[#1a2b6b] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     <IconComponent className="text-white text-2xl" />
                   </div>
-                  <h4 className="text-xl font-semibold text-gray-900 group-hover:text-[#141e5b] transition-colors duration-300 mb-2">{value.title}</h4>
+                  <h4 className="text-lg md:text-xl font-semibold text-gray-900 group-hover:text-[#141e5b] transition-colors duration-300 mb-2">{value.title}</h4>
                   <p className="text-gray-600 leading-relaxed">{value.description}</p>
                 </div>
               );

@@ -70,7 +70,7 @@ export default function NextFramework() {
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-4">
                   <IconComponent className="text-white text-lg sm:text-2xl" />
                 </div>
-                <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{item.title}</h4>
+                <h4 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">{item.title}</h4>
                 <p className="text-sm sm:text-base text-gray-600">{item.description}</p>
               </div>
             );
@@ -79,7 +79,7 @@ export default function NextFramework() {
 
         {/* CTA */}
         <div className="text-center">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Ready to Plan What's NEXT?</h3>
+          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Ready to Plan What's NEXT?</h3>
           <p className="text-base sm:text-lg text-gray-600 mb-6">
             Schedule your complimentary NEXT Strategy Session today, and let's chart your path to business growth, wealth, and legacy.
           </p>

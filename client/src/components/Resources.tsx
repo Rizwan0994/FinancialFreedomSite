@@ -9,7 +9,7 @@ export default function Resources() {
     <section id="resources" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Resources</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Resources</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Empowering Healthcare Entrepreneurs with the Tools to Grow, Prosper and Leave a Legacy
           </p>
@@ -21,7 +21,7 @@ export default function Resources() {
             <div className="w-20 h-20 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-6">
               <FaBookOpen className="text-white text-3xl" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Books & Guides</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Books & Guides</h3>
             <p className="text-gray-600 mb-6">
               Comprehensive guides and resources to help you understand the fundamentals of healthcare business growth and wealth building.
             </p>
@@ -40,7 +40,7 @@ export default function Resources() {
             <div className="w-20 h-20 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-6">
               <FaToolbox className="text-white text-3xl" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Success Kit</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Success Kit</h3>
             <p className="text-gray-600 mb-6">
               Essential tools, templates, and checklists to help you implement the NEXT Framework in your own healthcare business.
             </p>
@@ -54,7 +54,7 @@ export default function Resources() {
             <div className="w-20 h-20 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-6">
               <FaGraduationCap className="text-white text-3xl" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Trainings & Workshops</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Trainings & Workshops</h3>
             <p className="text-gray-600 mb-6">
               Interactive training sessions and workshops designed specifically for healthcare entrepreneurs at every stage of growth.
             </p>
