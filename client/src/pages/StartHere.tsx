@@ -197,15 +197,16 @@ export default function StartHere() {
           <h2 className="text-xl md:text-2xl font-light mb-8 text-white/90">
             "Let's Explore What's NEXT for Your Business and Life"
           </h2>
-          <p className="text-xl mb-12 text-white/80 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl mb-8 sm:mb-12 text-white/80 max-w-3xl mx-auto px-4">
             Schedule your complimentary NEXT Strategy Session with Your Lifestyle Navigator™ today.
           </p>
           <Button 
             onClick={scrollToBooking}
-            className="bg-white text-[#141e5b] px-12 py-6 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
+            className="bg-white text-[#141e5b] px-6 sm:px-8 lg:px-12 py-4 sm:py-6 rounded-lg text-lg sm:text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center mx-4"
           >
-            Book My NEXT Strategy Session
-            <FaCalendarCheck className="ml-3" />
+            <span className="hidden sm:inline">Book My NEXT Strategy Session</span>
+            <span className="sm:hidden">Book Strategy Session</span>
+            <FaCalendarCheck className="ml-2 sm:ml-3" />
           </Button>
         </div>
         
@@ -273,10 +274,11 @@ export default function StartHere() {
           <div className="text-center">
             <Button 
               onClick={scrollToBooking}
-              className="bg-[#141e5b] text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
+              className="bg-[#141e5b] text-white px-6 sm:px-8 lg:px-12 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
             >
-              Book My NEXT Strategy Session
-              <FaCalendarCheck className="ml-3" />
+              <span className="hidden sm:inline">Book My NEXT Strategy Session</span>
+              <span className="sm:hidden">Book Strategy Session</span>
+              <FaCalendarCheck className="ml-2 sm:ml-3" />
             </Button>
           </div>
         </div>
@@ -309,10 +311,11 @@ export default function StartHere() {
           <div className="text-center">
             <Button 
               onClick={scrollToBooking}
-              className="bg-[#141e5b] text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
+              className="bg-[#141e5b] text-white px-6 sm:px-8 lg:px-12 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
             >
-              Book My NEXT Strategy Session
-              <FaCalendarCheck className="ml-3" />
+              <span className="hidden sm:inline">Book My NEXT Strategy Session</span>
+              <span className="sm:hidden">Book Strategy Session</span>
+              <FaCalendarCheck className="ml-2 sm:ml-3" />
             </Button>
           </div>
         </div>
@@ -321,20 +324,20 @@ export default function StartHere() {
       {/* Booking Form Section */}
       <section id="booking-form" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Schedule Your Discovery Call</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Schedule Your Discovery Call</h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
               Ready to navigate what's NEXT for your healthcare business and financial future? 
               Fill out the form below and we'll contact you to schedule your complimentary session.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Form */}
-            <div className="bg-gray-50 p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Let's Get Started</h3>
+            <div className="bg-gray-50 p-6 sm:p-8 rounded-xl shadow-lg">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Let's Get Started</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <Label htmlFor="first-name">First Name *</Label>
                     <Input
@@ -423,9 +426,10 @@ export default function StartHere() {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-[#141e5b] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors"
+                  className="w-full bg-[#141e5b] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors"
                 >
-                  Schedule My Discovery Call
+                  <span className="hidden sm:inline">Schedule My Discovery Call</span>
+                  <span className="sm:hidden">Schedule Call</span>
                   <FaCalendarCheck className="ml-2" />
                 </Button>
               </form>
@@ -435,32 +439,32 @@ export default function StartHere() {
             <div>
               <div className="mb-8">
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   <div className="flex items-start">
-                    <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                      <FaPhone className="text-white" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                      <FaPhone className="text-white text-sm sm:text-base" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Phone</h4>
-                      <p className="text-gray-600">202-866-2372</p>
+                      <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Phone</h4>
+                      <p className="text-gray-600 text-sm sm:text-base">202-866-2372</p>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                      <FaEnvelope className="text-white" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                      <FaEnvelope className="text-white text-sm sm:text-base" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Email</h4>
-                      <p className="text-gray-600">support@yourlifestylenavigator.com</p>
+                      <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Email</h4>
+                      <p className="text-gray-600 text-sm sm:text-base break-all sm:break-normal">support@yourlifestylenavigator.com</p>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-12 h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                      <FaClock className="text-white" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#141e5b] rounded-lg flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                      <FaClock className="text-white text-sm sm:text-base" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Business Hours</h4>
-                      <p className="text-gray-600">
+                      <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Business Hours</h4>
+                      <p className="text-gray-600 text-sm sm:text-base">
                         Monday - Friday: 9:00 AM - 6:00 PM<br />
                         Saturday: By Appointment<br />
                         Sunday: Closed
@@ -526,29 +530,30 @@ export default function StartHere() {
       </section>
 
       {/* Final CTA Section */}
-      <section id="booking-section" className="py-20 bg-gradient-to-br from-[#141e5b] via-[#0A1245] to-[#141e5b] text-white">
+      <section id="booking-section" className="py-16 sm:py-20 bg-gradient-to-br from-[#141e5b] via-[#0A1245] to-[#141e5b] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 px-2">
             Are You Ready to Plan What's NEXT?
           </h2>
-          <div className="max-w-4xl mx-auto mb-12">
-            <p className="text-xl mb-6 text-white/90">
+          <div className="max-w-4xl mx-auto mb-8 sm:mb-12 px-4">
+            <p className="text-lg sm:text-xl mb-4 sm:mb-6 text-white/90">
               Your business success is just the beginning.
             </p>
-            <p className="text-xl mb-8 text-white/90">
+            <p className="text-lg sm:text-xl mb-6 sm:mb-8 text-white/90">
               Let's explore how you can elevate wealth, design your ideal exit, and build a lasting legacy.
             </p>
-            <p className="text-lg text-white/80">
+            <p className="text-base sm:text-lg text-white/80">
               Use the form above to schedule your complimentary NEXT Strategy Session today.
             </p>
           </div>
           
           <Button 
             onClick={scrollToBooking}
-            className="bg-white text-[#141e5b] px-16 py-6 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
+            className="bg-white text-[#141e5b] px-6 sm:px-8 lg:px-16 py-4 sm:py-6 rounded-lg text-lg sm:text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center mx-4"
           >
-            Schedule My Session Now
-            <FaCalendarCheck className="ml-3" />
+            <span className="hidden sm:inline">Schedule My Session Now</span>
+            <span className="sm:hidden">Schedule Session</span>
+            <FaCalendarCheck className="ml-2 sm:ml-3" />
           </Button>
         </div>
       </section>
