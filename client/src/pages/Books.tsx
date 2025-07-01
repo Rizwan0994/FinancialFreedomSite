@@ -1,12 +1,23 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useLocation } from "wouter";
 import { FaDownload, FaStar, FaStarHalfAlt, FaRegStar, FaArrowLeft, FaBook, FaCalendarAlt, FaUser } from 'react-icons/fa';
+import { useToast } from "@/hooks/use-toast";
 
 export default function Books() {
   const [, setLocation] = useLocation();
+  const { toast } = useToast();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedBook, setSelectedBook] = useState<{ pdfUrl: string; title: string } | null>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -54,7 +65,83 @@ export default function Books() {
     }
   ];
 
-  const handleDownload = (pdfUrl: string, bookTitle: string) => {
+  const handleDownloadClick = (pdfUrl: string, bookTitle: string) => {
+    setSelectedBook({ pdfUrl, title: bookTitle });
+    setIsModalOpen(true);
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name.trim() || !formData.email.trim()) {
+      toast({
+        title: "Error",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Error",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://0bd.44a.myftpupload.com/wp-json/ghl/v1/submit/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: formData.name,
+          lastName: "",
+          email: formData.email,
+          source: "book_download",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        toast({
+          title: "Success!",
+          description: "Thank you! Your download will begin shortly.",
+        });
+
+        // Clear form
+        setFormData({ name: "", email: "" });
+        
+        // Close modal
+        setIsModalOpen(false);
+        
+        // Proceed with download
+        if (selectedBook) {
+          handleActualDownload(selectedBook.pdfUrl, selectedBook.title);
+        }
+      } else {
+        throw new Error(result?.error || "Unknown error");
+      }
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleActualDownload = (pdfUrl: string, bookTitle: string) => {
     // Create a temporary link element to trigger download
     const link = document.createElement('a');
     link.href = pdfUrl;
@@ -63,6 +150,12 @@ export default function Books() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setSelectedBook(null);
+    setFormData({ name: "", email: "" });
   };
 
   const renderStars = (rating: number) => {
@@ -181,14 +274,14 @@ export default function Books() {
                       {/* Download Button */}
                       <div className="pt-4">
                         <Button
-                          onClick={() => handleDownload(book.pdfUrl, book.title)}
+                          onClick={() => handleDownloadClick(book.pdfUrl, book.title)}
                           className="bg-[#141e5b] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
                         >
                           <FaDownload className="mr-3" />
                           Download Free PDF
                         </Button>
                         <p className="text-sm text-gray-500 mt-2">
-                          Free download - No registration required
+                          Get instant access - Just provide your details
                         </p>
                       </div>
                     </div>
@@ -217,6 +310,81 @@ export default function Books() {
             </Button>
           </div>
         </section>
+
+        {/* Download Confirmation Modal */}
+        <Dialog open={isModalOpen} onOpenChange={handleModalClose}>
+          <DialogContent className="sm:max-w-md">
+            <DialogHeader>
+              <DialogTitle className="text-xl font-bold text-gray-900">
+                Download Free PDF
+              </DialogTitle>
+              <DialogDescription className="text-gray-600">
+                Please provide your details to download "{selectedBook?.title}". We'll never spam you.
+              </DialogDescription>
+            </DialogHeader>
+            
+            <form onSubmit={handleFormSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  Full Name *
+                </label>
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="Enter your full name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  Email Address *
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Enter your email address"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full"
+                  required
+                />
+              </div>
+            </form>
+
+            <DialogFooter className="gap-2">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={handleModalClose}
+                disabled={isSubmitting}
+              >
+                Cancel
+              </Button>
+              <Button
+                type="button"
+                onClick={handleFormSubmit}
+                disabled={isSubmitting}
+                className="bg-[#141e5b] text-white hover:bg-[#141e5b]/90"
+              >
+                {isSubmitting ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                    Processing...
+                  </>
+                ) : (
+                  <>
+                    <FaDownload className="mr-2" />
+                    Download PDF
+                  </>
+                )}
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
       <Footer />
     </>
