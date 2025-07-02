@@ -8,11 +8,12 @@ import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useLocation } from "wouter";
-import { FaCalendarCheck, FaMapMarkerAlt, FaBullseye, FaSearch, FaRocket, FaHandshake, FaQuoteLeft, FaPhone, FaEnvelope, FaClock, FaCheck } from 'react-icons/fa';
+import { FaCalendarCheck, FaMapMarkerAlt, FaBullseye, FaSearch, FaRocket, FaHandshake, FaQuoteLeft, FaPhone, FaEnvelope, FaClock, FaCheck, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 export default function StartHere() {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
+  const [expandedTestimonial, setExpandedTestimonial] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -155,10 +156,41 @@ export default function StartHere() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
+  const toggleTestimonial = (id: number) => {
+    setExpandedTestimonial(expandedTestimonial === id ? null : id);
+  };
+
   const testimonials = [
-    "The Discovery Call helped me see exactly what was missing in my business and wealth strategy.",
-    "In one call, John helped me think differently about legacy planning — and how my business could serve my life.",
-    "After our Discovery Call, I knew I had found the right guide for this next phase of my journey."
+    {
+      id: 1,
+      name: "George Doga",
+      location: "Ontario, Canada",
+      stage: "Concept → Ascend",
+      wins: ["Business Launch", "Mindset Shift", "Financial Independence"],
+      quote: "John's guidance helped me realize that I was building someone else's dream. Now, I wake up every day building my own.",
+      story: "George was a seasoned healthcare worker in Canada, burnt out from years of overwork and feeling stuck in a system that didn't reward his ambition. After reading Freedom at Last! and receiving direct mentorship from John S. Smith Jr., he made the bold decision to resign from his job and pursue his dream of entrepreneurship.",
+      results: [
+        "Launched his own healthcare consulting business",
+        "Built a clear roadmap for income diversification", 
+        "Gained confidence through purpose-based planning and mindset coaching",
+        "Now serves as an advocate for others seeking freedom through business"
+      ]
+    },
+    {
+      id: 2,
+      name: "Anne Balili",
+      location: "United States",
+      stage: "Concept → Realize", 
+      wins: ["Practice Launch", "Overcoming Fear", "Personal Fulfillment"],
+      quote: "John didn't just give me a plan—he gave me permission to move forward. I feel like I've finally come alive.",
+      story: "For over a decade, Anne dreamed of opening her own practice—but fear, analysis paralysis, and lack of direction kept her stuck. After connecting with John and participating in the Your Lifestyle Navigator process, she shifted her mindset, overcame years of hesitation, and finally launched her behavioral health practice.",
+      results: [
+        "Successfully opened her own private practice after 10+ years of delay",
+        "Developed a strong niche and vision-led brand",
+        "Gained control over her time and professional identity",
+        "Serving clients in a way that reflects her core values and calling"
+      ]
+    }
   ];
 
   const expectationSteps = [
@@ -509,22 +541,136 @@ export default function StartHere() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              What Clients Are Saying
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Client Success Stories
             </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Real healthcare entrepreneurs who transformed their businesses and lives through the NEXT Framework™
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 p-8 rounded-lg text-center">
-                <div className="w-16 h-16 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <FaQuoteLeft className="text-white text-xl" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {testimonials.map((testimonial) => {
+              const isExpanded = expandedTestimonial === testimonial.id;
+              return (
+                <div key={testimonial.id} className="bg-white border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                  {/* Compact Header - Always Visible */}
+                  <div className="p-6 sm:p-8">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-12 h-12 bg-[#141e5b] rounded-full flex items-center justify-center flex-shrink-0">
+                            <FaQuoteLeft className="text-white text-sm" />
+                          </div>
+                          <div>
+                            <h3 className="text-lg sm:text-xl font-bold text-gray-900">{testimonial.name}</h3>
+                            <p className="text-sm text-gray-600">{testimonial.location}</p>
+                          </div>
+                        </div>
+                        
+                        <div className="mb-4">
+                          <span className="inline-block px-3 py-1 bg-[#141e5b] text-white text-xs font-medium rounded-full mb-3">
+                            {testimonial.stage}
+                          </span>
+                          <div className="flex flex-wrap gap-2">
+                            {testimonial.wins.slice(0, 2).map((win, index) => (
+                              <span key={index} className="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
+                                ✓ {win}
+                              </span>
+                            ))}
+                            {testimonial.wins.length > 2 && (
+                              <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">
+                                +{testimonial.wins.length - 2} more
+                              </span>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Quote - Always Visible */}
+                        <blockquote className="text-base sm:text-lg italic text-gray-700 leading-relaxed mb-4">
+                          "{testimonial.quote}"
+                        </blockquote>
+                      </div>
+                    </div>
+
+                    {/* Expandable Content */}
+                    {isExpanded && (
+                      <div className="border-t border-gray-200 pt-6 space-y-4">
+                        <div>
+                          <h4 className="text-md font-semibold text-gray-900 mb-2">Success Story</h4>
+                          <p className="text-sm text-gray-700 leading-relaxed">
+                            {testimonial.story}
+                          </p>
+                        </div>
+                        
+                        <div>
+                          <h5 className="text-md font-semibold text-gray-900 mb-2">Key Results:</h5>
+                          <div className="grid grid-cols-1 gap-2">
+                            {testimonial.results.map((result, index) => (
+                              <div key={index} className="flex items-start text-gray-700">
+                                <FaCheck className="text-green-600 mr-2 mt-1 flex-shrink-0 text-xs" />
+                                <span className="text-sm">{result}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* All Wins When Expanded */}
+                        <div>
+                          <h5 className="text-md font-semibold text-gray-900 mb-2">All Achievements:</h5>
+                          <div className="flex flex-wrap gap-2">
+                            {testimonial.wins.map((win, index) => (
+                              <span key={index} className="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
+                                ✓ {win}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Toggle Button */}
+                    <div className="flex justify-center mt-6">
+                      <Button
+                        onClick={() => toggleTestimonial(testimonial.id)}
+                        variant="outline"
+                        size="sm"
+                        className="text-[#141e5b] border-[#141e5b] hover:bg-[#141e5b] hover:text-white transition-colors"
+                      >
+                        {isExpanded ? (
+                          <>
+                            <span className="mr-2">Show Less</span>
+                            <FaChevronUp className="text-xs" />
+                          </>
+                        ) : (
+                          <>
+                            <span className="mr-2">Read Full Story</span>
+                            <FaChevronDown className="text-xs" />
+                          </>
+                        )}
+                      </Button>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-gray-700 italic text-lg leading-relaxed">
-                  "{testimonial}"
-                </p>
-              </div>
-            ))}
+              );
+            })}
+          </div>
+
+          {/* CTA Below Testimonials */}
+          <div className="text-center mt-12 bg-gray-50 rounded-2xl p-6 sm:p-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+              Ready to Write Your Own Success Story?
+            </h3>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              Join healthcare entrepreneurs like George and Anne who transformed their businesses and lives.
+            </p>
+            <Button 
+              onClick={scrollToBooking}
+              className="bg-[#141e5b] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
+            >
+              Start Your Journey Today
+              <FaCalendarCheck className="ml-2" />
+            </Button>
           </div>
         </div>
       </section>

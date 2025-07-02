@@ -5,7 +5,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useLocation } from "wouter";
-import { FaDownload, FaStar, FaStarHalfAlt, FaRegStar, FaArrowLeft, FaBook, FaCalendarAlt, FaUser } from 'react-icons/fa';
+import { FaDownload, FaStar, FaStarHalfAlt, FaRegStar, FaArrowLeft, FaBook, FaCalendarAlt, FaUser, FaAmazon, FaExternalLinkAlt } from 'react-icons/fa';
 import { useToast } from "@/hooks/use-toast";
 
 export default function Books() {
@@ -32,7 +32,7 @@ export default function Books() {
       coverImage: "https://m.media-amazon.com/images/I/81K90sx+cnL._SY425_.jpg",
       rating: 4.6,
       reviewCount: 3,
-      description: "JOHN SAYE SMITH JR., RN, BSN is the founder of Prestige Healthcare Resources (PHR) DBA Personal Results, an in-home care, case management, and staffing agency focusing on enhancing the lifestyle of nurses and other professionals. Mr. Smith has been invited to speaking engagements on numerous occasions to share his stories with the world and to help individuals and companies learn the secret of How to Use Rejections as YOUR Weapon for Success.In this book, you will:•Get Tools to Overcome Your Self-Limiting Beliefs•Create a Plan to Define Success in Your Own Terms•Understand How Empowering Yourself Lowers Your Stress Level•Discover Finding Freedom Within Yourself Works Through Discipline•Realize That Your Unique Talents Can Create Huge Effects in Others’ Lives“I recommend 'Freedom at Last!' to all who find excuses for not being successful.",
+      description: "JOHN SAYE SMITH JR., RN, BSN is the founder of Prestige Healthcare Resources (PHR) DBA Personal Results, an in-home care, case management, and staffing agency focusing on enhancing the lifestyle of nurses and other professionals. Mr. Smith has been invited to speaking engagements on numerous occasions to share his stories with the world and to help individuals and companies learn the secret of How to Use Rejections as YOUR Weapon for Success...",
       features: [
         "Tools to overcome your self-limiting beliefs",
         "Create a plan to define success in your own terms",
@@ -42,7 +42,8 @@ export default function Books() {
       ],
       publishDate: "August 11, 2019",
       pages: 66,
-      pdfUrl: "https://drive.google.com/uc?export=download&id=1J5plmg6W_wHnbPgV3DQoFAEfTtVfdYTb"
+      pdfUrl: "https://drive.google.com/uc?export=download&id=14O-aFm0Mi2K2v71tRqSPJWWIUagq9EvF",
+      amazonUrl: "https://www.amazon.com/Freedom-At-Last-Overcome-Holding-ebook/dp/B07WM1FMCS/?_encoding=UTF8&pd_rd_w=HhMzv&content-id=amzn1.sym.0fb2cce1-1ca4-439a-844b-8ad0b1fb77f7&pf_rd_p=0fb2cce1-1ca4-439a-844b-8ad0b1fb77f7&pf_rd_r=133-3106300-4107736&pd_rd_wg=a6eoE&pd_rd_r=fcb97735-66ca-4f01-9662-c69dde5e9de6&ref_=aufs_ap_sc_dsk"
     },
     {
       id: 2,
@@ -61,7 +62,8 @@ export default function Books() {
       ],
       publishDate: "February 26, 2023",
       pages: 122,
-      pdfUrl: "https://drive.google.com/uc?export=download&id=1cKF8Oe8RbXoqZvhXQ_BiYWGL_UVpjzaK"
+      pdfUrl: "https://drive.google.com/uc?export=download&id=1qixK7EmCISFuD8dUmzlDtmub982cM8yY",
+      amazonUrl: "https://www.amazon.com/Win-Year-Build-Your-Wealth-ebook/dp/B0BWYX3F58/?_encoding=UTF8&pd_rd_w=HhMzv&content-id=amzn1.sym.0fb2cce1-1ca4-439a-844b-8ad0b1fb77f7&pf_rd_p=0fb2cce1-1ca4-439a-844b-8ad0b1fb77f7&pf_rd_r=133-3106300-4107736&pd_rd_wg=a6eoE&pd_rd_r=fcb97735-66ca-4f01-9662-c69dde5e9de6&ref_=aufs_ap_sc_dsk"
     }
   ];
 
@@ -225,7 +227,7 @@ export default function Books() {
                     {/* Book Details */}
                     <div className="lg:col-span-2 space-y-6">
                       <div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{book.title}</h2>
+                        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{book.title}</h3>
                         <p className="text-lg text-gray-600 flex items-center">
                           <FaUser className="mr-2" />
                           by {book.author}
@@ -271,18 +273,38 @@ export default function Books() {
                         </ul>
                       </div>
 
-                      {/* Download Button */}
-                      <div className="pt-4">
-                        <Button
-                          onClick={() => handleDownloadClick(book.pdfUrl, book.title)}
-                          className="bg-[#141e5b] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
-                        >
-                          <FaDownload className="mr-3" />
-                          Download Free PDF
-                        </Button>
-                        <p className="text-sm text-gray-500 mt-2">
-                          Get instant access - Just provide your details
-                        </p>
+                      {/* Action Buttons */}
+                      <div className="pt-4 space-y-4">
+                        <div className="flex flex-col sm:flex-row gap-3">
+                          {/* Download Button */}
+                          <Button
+                            onClick={() => handleDownloadClick(book.pdfUrl, book.title)}
+                            className="bg-[#141e5b] text-white px-4 sm:px-6 py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center justify-center w-full sm:w-auto"
+                          >
+                            <FaDownload className="mr-2 text-sm" />
+                            Download Free PDF
+                          </Button>
+                          
+                          {/* Amazon Purchase Button */}
+                          <Button
+                            onClick={() => window.open(book.amazonUrl, '_blank')}
+                            className="bg-orange-500 text-white px-4 sm:px-6 py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-orange-600 transition-colors inline-flex items-center justify-center w-full sm:w-auto"
+                          >
+                            <FaAmazon className="mr-2 text-sm" />
+                            Buy on Amazon
+                            <FaExternalLinkAlt className="ml-2 text-xs" />
+                          </Button>
+                        </div>
+                        
+                        {/* Help Text */}
+                        <div className="space-y-1">
+                          <p className="text-xs sm:text-sm text-gray-600">
+                            <strong>Free PDF:</strong> Get instant access
+                          </p>
+                          <p className="text-xs sm:text-sm text-gray-600">
+                            <strong>Amazon:</strong> Purchase the full physical or Kindle version
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>

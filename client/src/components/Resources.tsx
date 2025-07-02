@@ -1,9 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
-import { FaBookOpen, FaToolbox, FaGraduationCap, FaDownload, FaCalendar, FaExternalLinkAlt, FaChevronRight } from 'react-icons/fa';
+import { FaBookOpen, FaToolbox, FaGraduationCap, FaDownload, FaCalendar, FaChevronRight } from 'react-icons/fa';
+import { useState } from "react";
+import { Dialog } from "@headlessui/react";
+import ScheduleBooking from "./ScheduleBooking";
 
 export default function Resources() {
   const [, setLocation] = useLocation();
+  const [showSchedule, setShowSchedule] = useState(false);
 
   return (
     <section id="resources" className="py-20 bg-gray-50">
@@ -44,12 +48,16 @@ export default function Resources() {
             <p className="text-gray-600 mb-6">
               Essential tools, templates, and checklists to help you implement the NEXT Framework in your own healthcare business.
             </p>
-            <a href="#" className="text-[#141e5b] font-semibold hover:text-[#141e5b]/80 transition-colors">
-              Download Kit <FaDownload className="ml-1" />
-            </a>
+            <Button
+              onClick={() => alert("Download coming soon!")}
+              variant="outline"
+              className="text-[#141e5b] font-semibold inline-flex items-center"
+            >
+              Download Kit <FaDownload className="ml-2" />
+            </Button>
           </div>
 
-          {/* Trainings */}
+          {/* Trainings & Workshops */}
           <div className="bg-white p-8 rounded-lg text-center shadow-sm">
             <div className="w-20 h-20 bg-[#141e5b] rounded-full flex items-center justify-center mx-auto mb-6">
               <FaGraduationCap className="text-white text-3xl" />
@@ -58,24 +66,33 @@ export default function Resources() {
             <p className="text-gray-600 mb-6">
               Interactive training sessions and workshops designed specifically for healthcare entrepreneurs at every stage of growth.
             </p>
-            <a href="#" className="text-[#141e5b] font-semibold hover:text-[#141e5b]/80 transition-colors">
-              View Schedule <FaCalendar className="ml-1" />
-            </a>
+            <Button
+              onClick={() => setShowSchedule(true)}
+              variant="outline"
+              className="text-[#141e5b] font-semibold inline-flex items-center"
+            >
+              View Schedule <FaCalendar className="ml-2" />
+            </Button>
           </div>
         </div>
-
-        {/* Featured Resource */}
-        {/* <div className="mt-16 bg-[#141e5b] rounded-lg p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">FREE Healthcare Entrepreneur Success Assessment</h3>
-          <p className="text-lg mb-6 opacity-90">
-            Discover where you are in your journey and what steps to take next with our comprehensive assessment tool.
-          </p>
-          <Button className="bg-white text-[#141e5b] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center">
-            Take Assessment Now
-            <FaChevronRight className="ml-2" />
-          </Button>
-        </div> */}
       </div>
+
+      {/* Modal for ScheduleBooking */}
+      <Dialog open={showSchedule} onClose={() => setShowSchedule(false)} className="relative z-50">
+        <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+
+        <div className="fixed inset-0 flex items-center justify-center p-4">
+          <Dialog.Panel className="bg-white max-w-3xl w-full p-6 rounded-xl shadow-lg">
+            <div className="flex justify-between items-center mb-4">
+              <Dialog.Title className="text-lg font-semibold text-gray-900">
+                Schedule a Training or Workshop
+              </Dialog.Title>
+              <button onClick={() => setShowSchedule(false)} className="text-gray-500 hover:text-gray-700 text-xl">&times;</button>
+            </div>
+            <ScheduleBooking />
+          </Dialog.Panel>
+        </div>
+      </Dialog>
     </section>
   );
 }
