@@ -9,6 +9,7 @@ import StartHere from "@/pages/StartHere";
 import FAQ from "@/pages/FAQ";
 import Books from "@/pages/Books";
 import NotFound from "@/pages/not-found";
+import Booking from "./pages/Booking";
 
 function Router() {
   return (
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/start-here" component={StartHere} />
       <Route path="/faq" component={FAQ} />
       <Route path="/books" component={Books} />
+      <Route path="/booking" component={Booking} />
       <Route component={NotFound} />
     </Switch>
   );

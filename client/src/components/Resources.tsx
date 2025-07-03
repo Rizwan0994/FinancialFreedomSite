@@ -2,8 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
 import { FaBookOpen, FaToolbox, FaGraduationCap, FaDownload, FaCalendar, FaChevronRight } from 'react-icons/fa';
 import { useState } from "react";
-import { Dialog } from "@headlessui/react";
-import ScheduleBooking from "./ScheduleBooking";
+
 
 export default function Resources() {
   const [, setLocation] = useLocation();
@@ -67,7 +66,7 @@ export default function Resources() {
               Interactive training sessions and workshops designed specifically for healthcare entrepreneurs at every stage of growth.
             </p>
             <Button
-              onClick={() => setShowSchedule(true)}
+             onClick={() => setLocation("/booking")}
               variant="outline"
               className="text-[#141e5b] font-semibold inline-flex items-center"
             >
@@ -77,22 +76,6 @@ export default function Resources() {
         </div>
       </div>
 
-      {/* Modal for ScheduleBooking */}
-      <Dialog open={showSchedule} onClose={() => setShowSchedule(false)} className="relative z-50">
-        <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-
-        <div className="fixed inset-0 flex items-center justify-center p-4">
-          <Dialog.Panel className="bg-white max-w-3xl w-full p-6 rounded-xl shadow-lg">
-            <div className="flex justify-between items-center mb-4">
-              <Dialog.Title className="text-lg font-semibold text-gray-900">
-                Schedule a Training or Workshop
-              </Dialog.Title>
-              <button onClick={() => setShowSchedule(false)} className="text-gray-500 hover:text-gray-700 text-xl">&times;</button>
-            </div>
-            <ScheduleBooking />
-          </Dialog.Panel>
-        </div>
-      </Dialog>
     </section>
   );
 }
