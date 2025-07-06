@@ -317,19 +317,20 @@ export default function Books() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-[#141e5b] py-16">
+        <section className="bg-[#141e5b] py-12 sm:py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 px-2">
               Ready to Implement What You've Learned?
             </h2>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 px-2 leading-relaxed">
               These books are just the beginning. Let's work together to create your personalized path to financial freedom.
             </p>
             <Button
               onClick={() => setLocation("/start-here")}
-              className="bg-white text-[#141e5b] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
+              className="bg-white text-[#141e5b] px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center mx-2"
             >
-              Schedule Your NEXT Strategy Session
+              <span className="hidden sm:inline">Schedule Your NEXT Strategy Session</span>
+              <span className="sm:hidden">Schedule Strategy Session</span>
               <FaCalendarAlt className="ml-2" />
             </Button>
           </div>

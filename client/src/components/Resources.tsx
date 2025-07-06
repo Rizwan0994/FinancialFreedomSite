@@ -75,7 +75,7 @@ export default function Resources() {
               Interactive training sessions and workshops designed specifically for healthcare entrepreneurs at every stage of growth.
             </p>
             <Button
-         
+            onClick={()=>setLocation("/booking")}
               variant="outline"
               className="text-[#141e5b] font-semibold inline-flex items-center"
             >
@@ -90,7 +90,7 @@ export default function Resources() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-20 bg-gradient-to-br from-[#141e5b] via-[#0A1245] to-[#141e5b] rounded-2xl p-8 md:p-12 text-white relative overflow-hidden"
+          className="mt-16 sm:mt-20 bg-gradient-to-br from-[#141e5b] via-[#0A1245] to-[#141e5b] rounded-2xl p-6 sm:p-8 md:p-12 text-white relative overflow-hidden"
         >
           {/* Background decoration */}
           <div className="absolute inset-0 bg-black/10 rounded-2xl"></div>
@@ -115,7 +115,7 @@ export default function Resources() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
-              className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 px-2"
             >
               Ready to Apply These Resources to Your Business?
             </motion.h3>
@@ -125,7 +125,7 @@ export default function Resources() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
               viewport={{ once: true }}
-              className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto"
+              className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/90 max-w-3xl mx-auto px-2 leading-relaxed"
             >
               Our resources are just the beginning. Get personalized guidance on implementing these strategies in your unique healthcare business context.
             </motion.p>
@@ -136,7 +136,7 @@ export default function Resources() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
               viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10"
             >
               <div className="text-center">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -163,21 +163,23 @@ export default function Resources() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
               viewport={{ once: true }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center max-w-lg sm:max-w-none mx-auto"
             >
               <Button 
                 onClick={navigateToStartHere}
-                className="bg-white text-[#141e5b] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center group"
+                className="w-full sm:w-auto bg-white text-[#141e5b] px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center group"
               >
-                Get Personalized Strategy
+                <span className="hidden sm:inline">Get Personalized Strategy</span>
+                <span className="sm:hidden">Get Strategy</span>
                 <FaCalendarCheck className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 onClick={navigateToServices}
                 variant="outline"
-                className="border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-[#141e5b] transition-colors inline-flex items-center group bg-transparent"
+                className="w-full sm:w-auto border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-white hover:text-[#141e5b] transition-colors inline-flex items-center justify-center group bg-transparent"
               >
-                Explore Our Services
+                <span className="hidden sm:inline">Explore Our Services</span>
+                <span className="sm:hidden">Our Services</span>
                 <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>

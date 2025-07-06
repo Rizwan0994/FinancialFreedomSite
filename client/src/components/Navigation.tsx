@@ -14,6 +14,7 @@ export default function Navigation() {
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [location, setLocation] = useLocation();
+  const [dropdownTimer, setDropdownTimer] = useState<NodeJS.Timeout | null>(null);
 
   // Effect to handle highlighting nav items on scroll.
   // Note: This requires <section> elements with corresponding IDs on the page to work.
@@ -163,6 +164,31 @@ export default function Navigation() {
     setIsMenuOpen(false);
   };
 
+  // Functions to handle dropdown with proper delays
+  const handleDropdownEnter = () => {
+    if (dropdownTimer) {
+      clearTimeout(dropdownTimer);
+      setDropdownTimer(null);
+    }
+    setIsServicesDropdownOpen(true);
+  };
+
+  const handleDropdownLeave = () => {
+    const timer = setTimeout(() => {
+      setIsServicesDropdownOpen(false);
+    }, 200); // 200ms delay before closing
+    setDropdownTimer(timer);
+  };
+
+  // Cleanup timer on unmount
+  useEffect(() => {
+    return () => {
+      if (dropdownTimer) {
+        clearTimeout(dropdownTimer);
+      }
+    };
+  }, [dropdownTimer]);
+
   // Navigation items as seen in the provided image and original code
   const navItems = [
     { id: "home", label: "HOME" },
@@ -283,8 +309,8 @@ export default function Navigation() {
                   {item.type === "dropdown" ? (
                     <div 
                       className="relative"
-                      onMouseEnter={() => setIsServicesDropdownOpen(true)}
-                      onMouseLeave={() => setIsServicesDropdownOpen(false)}
+                      onMouseEnter={() => handleDropdownEnter()}
+                      onMouseLeave={() => handleDropdownLeave()}
                     >
                       <button
                         onClick={() => handleNavigation(item)}
