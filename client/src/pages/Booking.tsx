@@ -52,7 +52,7 @@ export default function Booking() {
                 <FaCalendarAlt className="text-white text-sm" />
               </div>
               <h1 className="text-lg sm:text-xl font-bold text-gray-900">
-                Book Your NEXT Strategy Session
+                Book Your Session
               </h1>
             </div>
             
@@ -184,7 +184,7 @@ export default function Booking() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center">
             <p className="text-sm text-gray-600">
-              © 2024 Your Lifestyle Navigator™ - Empowering Healthcare Entrepreneurs
+              © 2025 Your Lifestyle Navigator™ - Empowering Healthcare Entrepreneurs
             </p>
           </div>
         </div>
