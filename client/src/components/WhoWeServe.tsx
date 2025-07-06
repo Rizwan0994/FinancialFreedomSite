@@ -1,7 +1,11 @@
 import { FaClinicMedical, FaHospital, FaBrain, FaUserTie, FaLaptopMedical, FaArrowRight, FaCalendarCheck } from 'react-icons/fa';
 import { Button } from "@/components/ui/button";
-
+import { useLocation } from "wouter";
 export default function WhoWeServe() {
+    const [, setLocation] = useLocation();
+      const navigateToPathToFreedom = () => {
+    setLocation("/path-to-freedom");
+  };
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -78,7 +82,7 @@ export default function WhoWeServe() {
               <FaCalendarCheck className="text-sm sm:text-base" />
             </Button>
             <Button
-              onClick={() => scrollToSection("path-to-freedom")}
+              onClick={() => navigateToPathToFreedom()}
               variant="outline"
               className="w-full sm:w-auto border-[#141e5b] text-[#141e5b] px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-[#141e5b]/5 transition-colors inline-flex items-center justify-center"
             >

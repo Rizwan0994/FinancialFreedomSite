@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { FaArrowLeft, FaCalendarAlt, FaClock, FaCheck } from 'react-icons/fa';
 import { useLocation } from "wouter";
+import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 
 export default function Booking() {
-     const [, setLocation] = useLocation();
+  useScrollToTop();
+  const [, setLocation] = useLocation();
   useEffect(() => {
     // Load the form embed script
     const script = document.createElement('script');

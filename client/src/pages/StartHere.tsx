@@ -8,9 +8,11 @@ import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useLocation } from "wouter";
+import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 import { FaCalendarCheck, FaMapMarkerAlt, FaBullseye, FaSearch, FaRocket, FaHandshake, FaQuoteLeft, FaPhone, FaEnvelope, FaClock, FaCheck, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 export default function StartHere() {
+  useScrollToTop();
   const [, setLocation] = useLocation();
   const { toast } = useToast();
   const [expandedTestimonial, setExpandedTestimonial] = useState<number | null>(null);
@@ -220,7 +222,7 @@ export default function StartHere() {
     <div className="min-h-screen">
       <Navigation />
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#141e5b] via-[#0A1245] to-[#141e5b] text-white py-24 mt-[136px]">
+      <section className="relative bg-gradient-to-br from-[#141e5b] via-[#0A1245] to-[#141e5b] text-white py-24 pt-20">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
@@ -697,8 +699,8 @@ export default function StartHere() {
             onClick={scrollToBooking}
             className="bg-white text-[#141e5b] px-6 sm:px-8 lg:px-16 py-4 sm:py-6 rounded-lg text-lg sm:text-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center mx-4"
           >
-            <span className="hidden sm:inline">Schedule My Session Now</span>
-            <span className="sm:hidden">Schedule Session</span>
+            <span className="hidden sm:inline"     onClick={() => setLocation("/booking")}>Schedule My Session Now</span>
+            <span className="sm:hidden"     onClick={() => setLocation("/booking")}>Schedule Session</span>
             <FaCalendarCheck className="ml-2 sm:ml-3" />
           </Button>
         </div>

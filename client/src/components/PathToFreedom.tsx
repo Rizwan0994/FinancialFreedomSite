@@ -2,10 +2,10 @@ import { Button } from "@/components/ui/button";
 import { FaArrowRight, FaExclamationTriangle, FaCheckCircle, FaChevronDown } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-
+import { useLocation } from 'wouter';
 export default function PathToFreedom() {
   const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
-
+  const [, setLocation] = useLocation();
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -247,7 +247,7 @@ export default function PathToFreedom() {
             className="flex justify-center"
           >
             <Button
-              onClick={() => scrollToSection("next-framework")}
+               onClick={() => setLocation("/next-framework")}
               className="w-full sm:w-auto bg-white text-[#141e5b] px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-gray-100 transition-all duration-300 inline-flex items-center justify-center shadow-md hover:shadow-lg max-w-sm sm:max-w-none"
             >
               <span className="mr-2 sm:mr-3">Discover the NEXT Framework</span>

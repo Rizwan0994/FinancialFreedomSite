@@ -1,8 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { FaCompass, FaChartLine, FaDoorOpen, FaTree, FaCalendarCheck } from 'react-icons/fa';
 import nextFrameWork from "@/assets/framework.png";
+import { useLocation } from "wouter";
 
 export default function NextFramework() {
+    const [, setLocation] = useLocation();
+  
+    const navigateToStartHere = () => {
+      setLocation("/start-here");
+    };
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -84,7 +90,7 @@ export default function NextFramework() {
             Schedule your complimentary NEXT Strategy Session today, and let's chart your path to business growth, wealth, and legacy.
           </p>
           <Button
-            onClick={() => scrollToSection("contact")}
+                onClick={navigateToStartHere}
             className="bg-[#141e5b] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-[#141e5b]/90 transition-colors inline-flex items-center"
           >
             <span className="hidden sm:inline">Book My NEXT Strategy Session</span>

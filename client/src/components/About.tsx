@@ -1,7 +1,14 @@
 import client3 from "@/assets/FFreedom-client.png";
-import { FaHandshake, FaRocket, FaTree, FaUsers, FaStar } from 'react-icons/fa';
+import { FaHandshake, FaRocket, FaTree, FaUsers, FaStar, FaCalendarCheck, FaArrowRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { useLocation } from 'wouter';
 export default function About() {
+  const [, setLocation] = useLocation();
+
+  const navigateToStartHere = () => {
+    setLocation("/start-here");
+  };
   const values = [
     {
       icon: FaHandshake,
@@ -124,6 +131,49 @@ export default function About() {
             })}
           </div>
         </div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-20 bg-gradient-to-br from-[#141e5b] via-[#0A1245] to-[#141e5b] rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden"
+        >
+          {/* Background decoration */}
+          <div className="absolute inset-0 bg-black/10 rounded-2xl"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-32 translate-x-32"></div>
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-24 -translate-x-24"></div>
+          
+          <div className="relative">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+              Ready to Transform Your Healthcare Business?
+            </h3>
+            <p className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto">
+              Let's explore how you can build lasting wealth, plan your ideal exit, and create a legacy that extends far beyond your practice.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button 
+                onClick={navigateToStartHere}
+                className="bg-white text-[#141e5b] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center group"
+              >
+                Schedule Your Discovery Call
+                <FaCalendarCheck className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button 
+                onClick={() => setLocation("/services")}
+                variant="outline"
+                className="bg-[#141e5b] border-white text-white px-8 py-4 rounded-lg text-lg font-semibold  inline-flex items-center group"
+              >
+                Explore Our Services
+                <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
+            <p className="text-sm text-white/70 mt-6">
+              Join healthcare entrepreneurs who've successfully transformed their businesses into wealth-building enterprises
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

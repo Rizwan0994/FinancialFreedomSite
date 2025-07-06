@@ -5,10 +5,12 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useLocation } from "wouter";
+import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 import { FaDownload, FaStar, FaStarHalfAlt, FaRegStar, FaArrowLeft, FaBook, FaCalendarAlt, FaUser, FaAmazon, FaExternalLinkAlt } from 'react-icons/fa';
 import { useToast } from "@/hooks/use-toast";
 
 export default function Books() {
+  useScrollToTop();
   const [, setLocation] = useLocation();
   const { toast } = useToast();
   const [isModalOpen, setIsModalOpen] = useState(false);

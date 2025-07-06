@@ -2,26 +2,19 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import WhoWeServe from "@/components/WhoWeServe";
-import PathToFreedom from "@/components/PathToFreedom";
-import NextFramework from "@/components/NextFramework";
-import ClientSuccessPath from "@/components/ClientSuccessPath";
-import Services from "@/components/Services";
-import Resources from "@/components/Resources";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 
 export default function Home() {
+  useScrollToTop();
+  
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
       <Hero />
       <About />
       <WhoWeServe />
-      <PathToFreedom />
-      <NextFramework />
-      <ClientSuccessPath />
-      <Services />
-      <Resources />
       <Contact />
       <Footer />
     </div>

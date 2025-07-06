@@ -1,8 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { FaCompass, FaChartLine, FaDoorOpen, FaTree, FaShieldAlt, FaCheck, FaArrowRight } from 'react-icons/fa';
+import { FaCompass, FaChartLine, FaDoorOpen, FaTree, FaShieldAlt, FaCheck, FaArrowRight, FaCalendarCheck, FaRocket } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { useLocation } from "wouter";
 
 export default function Services() {
+  const [, setLocation] = useLocation();
+
+  const navigateToStartHere = () => {
+    setLocation("/start-here");
+  };
+
+  const navigateToAbout = () => {
+    setLocation("/about-john");
+  };
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -170,6 +181,123 @@ export default function Services() {
             })}
           </div>
         </div>
+
+        {/* Modern CTA Section with Background Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="relative mt-20 rounded-3xl overflow-hidden shadow-2xl"
+        >
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
+            }}
+          >
+            {/* Overlay with gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#141e5b]/95 via-[#141e5b]/85 to-[#141e5b]/75"></div>
+          </div>
+          
+          {/* Content */}
+          <div className="relative z-10 px-8 md:px-12 lg:px-16 py-16 md:py-20">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6"
+              >
+                <FaRocket className="mr-2 text-yellow-300" />
+                Transform Your Healthcare Business
+              </motion.div>
+
+              {/* Main Heading */}
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                viewport={{ once: true }}
+                className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight"
+              >
+                Ready to Build Wealth While Making an Impact?
+              </motion.h2>
+
+              {/* Subheading */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+                className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed"
+              >
+                Don't let your expertise be limited by traditional practice models. Discover how our comprehensive services can help you create multiple income streams, build lasting wealth, and design your ideal exit strategy.
+              </motion.p>
+
+              {/* Stats or Key Points */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
+              >
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-yellow-300 mb-2">4-Step</div>
+                  <div className="text-sm md:text-base text-white/80">NEXT Framework™</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-yellow-300 mb-2">360°</div>
+                  <div className="text-sm md:text-base text-white/80">Comprehensive Approach</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-yellow-300 mb-2">Expert</div>
+                  <div className="text-sm md:text-base text-white/80">Healthcare Focus</div>
+                </div>
+              </motion.div>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                viewport={{ once: true }}
+                className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              >
+                <Button 
+                  onClick={navigateToStartHere}
+                  className="bg-white text-[#141e5b] px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 inline-flex items-center group shadow-lg"
+                >
+                  Schedule Your Strategy Session
+                  <FaCalendarCheck className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button 
+                  onClick={navigateToAbout}
+                  variant="outline"
+                  className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-[#141e5b] transition-all duration-300 transform hover:scale-105 inline-flex items-center group bg-transparent"
+                >
+                  Meet Your Navigator
+                  <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </motion.div>
+
+              {/* Trust Indicator */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+                viewport={{ once: true }}
+                className="text-sm text-white/70 mt-6"
+              >
+                ✓ Complimentary consultation • ✓ No obligation • ✓ Healthcare industry expertise
+              </motion.p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

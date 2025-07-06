@@ -1,12 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
-import { FaBookOpen, FaToolbox, FaGraduationCap, FaDownload, FaCalendar, FaChevronRight } from 'react-icons/fa';
+import { FaBookOpen, FaToolbox, FaGraduationCap, FaDownload, FaCalendar, FaChevronRight, FaCalendarCheck, FaArrowRight, FaRocket } from 'react-icons/fa';
 import { useState } from "react";
+import { motion } from 'framer-motion';
 
 
 export default function Resources() {
   const [, setLocation] = useLocation();
   const [showSchedule, setShowSchedule] = useState(false);
+
+  const navigateToStartHere = () => {
+    setLocation("/start-here");
+  };
+
+  const navigateToServices = () => {
+    setLocation("/services");
+  };
 
   return (
     <section id="resources" className="py-20 bg-gray-50">
@@ -66,7 +75,7 @@ export default function Resources() {
               Interactive training sessions and workshops designed specifically for healthcare entrepreneurs at every stage of growth.
             </p>
             <Button
-             onClick={() => setLocation("/booking")}
+         
               variant="outline"
               className="text-[#141e5b] font-semibold inline-flex items-center"
             >
@@ -74,8 +83,117 @@ export default function Resources() {
             </Button>
           </div>
         </div>
-      </div>
 
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-20 bg-gradient-to-br from-[#141e5b] via-[#0A1245] to-[#141e5b] rounded-2xl p-8 md:p-12 text-white relative overflow-hidden"
+        >
+          {/* Background decoration */}
+          <div className="absolute inset-0 bg-black/10 rounded-2xl"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-32 translate-x-32"></div>
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-24 -translate-x-24"></div>
+          
+          <div className="relative text-center">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6"
+            >
+              <FaRocket className="mr-2 text-yellow-300" />
+              Turn Knowledge Into Action
+            </motion.div>
+
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4"
+            >
+              Ready to Apply These Resources to Your Business?
+            </motion.h3>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              viewport={{ once: true }}
+              className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto"
+            >
+              Our resources are just the beginning. Get personalized guidance on implementing these strategies in your unique healthcare business context.
+            </motion.p>
+
+            {/* Key Benefits */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
+            >
+              <div className="text-center">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <FaBookOpen className="text-white text-lg" />
+                </div>
+                <div className="text-sm md:text-base text-white/80">Proven Strategies</div>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <FaToolbox className="text-white text-lg" />
+                </div>
+                <div className="text-sm md:text-base text-white/80">Practical Tools</div>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <FaGraduationCap className="text-white text-lg" />
+                </div>
+                <div className="text-sm md:text-base text-white/80">Expert Guidance</div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <Button 
+                onClick={navigateToStartHere}
+                className="bg-white text-[#141e5b] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center group"
+              >
+                Get Personalized Strategy
+                <FaCalendarCheck className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button 
+                onClick={navigateToServices}
+                variant="outline"
+                className="border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-[#141e5b] transition-colors inline-flex items-center group bg-transparent"
+              >
+                Explore Our Services
+                <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+              viewport={{ once: true }}
+              className="text-sm text-white/70 mt-6"
+            >
+              Transform your healthcare expertise into lasting wealth and legacy
+            </motion.p>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }

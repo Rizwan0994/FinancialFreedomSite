@@ -18,8 +18,8 @@ export default function Hero() {
   return (
     <motion.section 
       id="home" 
-      className="relative overflow-hidden" 
-      style={{ paddingTop: '136px', background: 'linear-gradient(135deg, #141e5b 0%, #141e5b 100%)' }}
+      className="relative overflow-hidden pt-20" 
+      style={{ background: 'linear-gradient(135deg, #141e5b 0%, #141e5b 100%)' }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}

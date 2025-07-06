@@ -3,16 +3,12 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useLocation } from "wouter";
-import { useEffect } from "react";
+import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 import { FaArrowRight, FaQuestionCircle, FaCalendarAlt } from 'react-icons/fa';
 
 export default function FAQ() {
+  useScrollToTop();
   const [, setLocation] = useLocation();
-
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
 
   const navigateToContact = () => {
     setLocation("/");

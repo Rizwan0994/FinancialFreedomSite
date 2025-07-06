@@ -61,6 +61,18 @@ export default function Navigation() {
   useEffect(() => {
     if (location === "/start-here") {
       setActiveSection("start-here");
+    } else if (location === "/about-john") {
+      setActiveSection("about");
+    } else if (location === "/path-to-freedom") {
+      setActiveSection("path-to-freedom");
+    } else if (location === "/next-framework") {
+      setActiveSection("next-framework");
+    } else if (location === "/client-success") {
+      setActiveSection("client-success");
+    } else if (location === "/services") {
+      setActiveSection("services");
+    } else if (location === "/resources") {
+      setActiveSection("resources");
     } else if (location === "/") {
       // If on home page, let scroll handler manage active section initially
       // The scroll handler will take over from here
@@ -138,14 +150,12 @@ export default function Navigation() {
   // Navigation items as seen in the provided image and original code
   const navItems = [
     { id: "home", label: "HOME" },
-    { id: "about", label: "ABOUT JOHN" },
-    { id: "path-to-freedom", label: "YOUR PATH TO FINANCIAL FREEDOM" },
-         { id: "next-framework", label: "THE NEXT FRAMEWORK" },
-    { id: "client-success", label: "CLIENT SUCCESS PATH" },
-   
-    { id: "services", label: "SERVICES" },
-    { id: "resources", label: "RESOURCES" },
-
+    { id: "about", label: "ABOUT JOHN", type: "page", path: "/about-john" },
+    { id: "path-to-freedom", label: "YOUR PATH TO FINANCIAL FREEDOM", type: "page", path: "/path-to-freedom" },
+    { id: "next-framework", label: "THE NEXT FRAMEWORK", type: "page", path: "/next-framework" },
+    { id: "client-success", label: "CLIENT SUCCESS PATH", type: "page", path: "/client-success" },
+    { id: "services", label: "SERVICES", type: "page", path: "/services" },
+    { id: "resources", label: "RESOURCES", type: "page", path: "/resources" },
     { id: "start-here", label: "START HERE", type: "page", path: "/start-here" },
   ];
 
