@@ -189,19 +189,20 @@ export default function TransferLegacyPage() {
             Ready to Build Your Legacy?
           </div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-2">
             Let's Create Your Legacy Strategy
           </h2>
           
-          <p className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/90 max-w-3xl mx-auto px-2">
             Schedule your complimentary legacy planning session to discover how our Transfer Legacy services can help you create a meaningful, lasting impact for generations to come.
           </p>
           
           <Button 
             onClick={navigateToStartHere}
-            className="bg-white text-[#141e5b] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center group"
+            className="bg-white text-[#141e5b] px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center group"
           >
-            Schedule Your Legacy Planning Session
+            <span className="hidden sm:inline">Schedule Your Legacy Planning Session</span>
+            <span className="sm:hidden">Schedule Legacy Session</span>
             <FaCalendarCheck className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
           
