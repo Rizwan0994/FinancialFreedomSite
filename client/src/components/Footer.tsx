@@ -18,11 +18,11 @@ export default function Footer() {
             <img
               src={logo}
               alt="Your Lifestyle Navigator Logo"
-              className="h-16 w-auto mb-4"
+              className="h-24 md:h-28 lg:h-32 w-auto mb-6"
               loading="lazy"
               decoding="async"
-              width="64"
-              height="64"
+              width="128"
+              height="128"
             />
             <p className="text-gray-400 mb-6 max-w-md">
               Empowering healthcare and behavioral health entrepreneurs to achieve business growth, 
@@ -126,7 +126,9 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-2 text-gray-400">
               <li>+1 202-991-1745</li>
-              <li>support@yourlifestylenavigator.com</li>
+              <li className="break-words text-sm md:text-base">
+                support@yourlifestylenavigator.com
+              </li>
               <li>
                 <button 
                   onClick={() => navigateToPage("/start-here")} 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
-import logo from '../assets/logo.jpg';
+import logo from '../assets/logo-transparent.png';
 import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 // FontAwesome icons are now loaded via CDN in index.html
 // No need for dynamic script loading
