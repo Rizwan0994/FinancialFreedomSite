@@ -52,7 +52,7 @@ export default function Books() {
       ],
       publishDate: "August 11, 2019",
       pages: 66,
-      pdfUrl: "https://drive.google.com/uc?export=download&id=14O-aFm0Mi2K2v71tRqSPJWWIUagq9EvF",
+      pdfUrl: "https://drive.google.com/uc?export=download&id=1SVu7EofnikxjhAJjKE3PwVpSvzKSVXYo",
       amazonUrl: "https://www.amazon.com/Freedom-At-Last-Overcome-Holding-ebook/dp/B07WM1FMCS/?_encoding=UTF8&pd_rd_w=HhMzv&content-id=amzn1.sym.0fb2cce1-1ca4-439a-844b-8ad0b1fb77f7&pf_rd_p=0fb2cce1-1ca4-439a-844b-8ad0b1fb77f7&pf_rd_r=133-3106300-4107736&pd_rd_wg=a6eoE&pd_rd_r=fcb97735-66ca-4f01-9662-c69dde5e9de6&ref_=aufs_ap_sc_dsk"
     },
     {
@@ -72,7 +72,7 @@ export default function Books() {
       ],
       publishDate: "February 26, 2023",
       pages: 122,
-      pdfUrl: "https://drive.google.com/uc?export=download&id=1qixK7EmCISFuD8dUmzlDtmub982cM8yY",
+      pdfUrl: "https://drive.google.com/uc?export=download&id=1VcpZH6_1XHzJr_J6kil1yih5LPwDiJPC",
       amazonUrl: "https://www.amazon.com/Win-Year-Build-Your-Wealth-ebook/dp/B0BWYX3F58/?_encoding=UTF8&pd_rd_w=HhMzv&content-id=amzn1.sym.0fb2cce1-1ca4-439a-844b-8ad0b1fb77f7&pf_rd_p=0fb2cce1-1ca4-439a-844b-8ad0b1fb77f7&pf_rd_r=133-3106300-4107736&pd_rd_wg=a6eoE&pd_rd_r=fcb97735-66ca-4f01-9662-c69dde5e9de6&ref_=aufs_ap_sc_dsk"
     }
   ];
