@@ -23,7 +23,7 @@ export default function Home() {
       "name": "Your Lifestyle Navigator™",
       "description": "Healthcare business growth and financial planning services for healthcare entrepreneurs",
       "url": "https://yourlifestylenavigator.com",
-      "telephone": "202-866-2372",
+      "telephone": "+1 202-991-1745",
       "email": "support@yourlifestylenavigator.com",
       "founder": {
         "@type": "Person",

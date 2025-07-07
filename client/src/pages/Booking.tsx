@@ -137,10 +137,10 @@ export default function Booking() {
                 <h3 className="font-semibold text-gray-900 mb-4">Need Help?</h3>
                 <div className="space-y-2">
                   <a 
-                    href="tel:202-866-2372"
+                    href="tel:+1 202-991-1745"
                     className="block text-sm text-gray-600 hover:text-[#141e5b] transition-colors"
                   >
-                    📞 202-866-2372
+                    📞 +1 202-991-1745
                   </a>
                   <a 
                     href="mailto:support@yourlifestylenavigator.com"
