@@ -54,12 +54,12 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="relative w-80 mx-auto">
+            <div className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl mx-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-[#141e5b]/10 to-transparent rounded-2xl transform rotate-2"></div>
-              <div className="relative bg-white rounded-2xl shadow-xl p-6">
+              <div className="relative bg-white rounded-2xl shadow-xl p-4 md:p-6">
                 <img 
                   src={client3}
-                  alt="Healthcare entrepreneur and founder reviewing financial planning documents"
+                  alt="John S. Smith Jr., RN, BSN - Healthcare entrepreneur and founder of Your Lifestyle Navigator™, reviewing financial planning documents"
                   className="w-full h-auto object-contain rounded-lg"
                   loading="lazy"
                   decoding="async"

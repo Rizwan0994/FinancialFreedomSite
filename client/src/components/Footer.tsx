@@ -1,35 +1,9 @@
 import logo from '../assets/logo-white.jpg';
 import { useLocation } from 'wouter';
-import { FaLinkedinIn, FaFacebookF, FaAmazon } from 'react-icons/fa';
+import { FaLinkedinIn, FaFacebookF, FaAmazon, FaInstagram } from 'react-icons/fa';
 export default function Footer() {
-  const [location, setLocation] = useLocation();
+  const [, setLocation] = useLocation();
   
-  // Function to handle both same-page scrolling and cross-page navigation
-  const handleNavigation = (sectionId: string) => {
-    if (location === '/') {
-      // If already on home page, just scroll to section
-      scrollToSection(sectionId);
-    } else {
-      // If on a different page, navigate to home page first
-      setLocation('/');
-      // Small delay to ensure page navigation completes before scrolling
-      setTimeout(() => {
-        scrollToSection(sectionId);
-      }, 100);
-    }
-  };
-  
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offsetTop = element.offsetTop - 136;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth",
-      });
-    }
-  };
-
   const navigateToPage = (path: string) => {
     setLocation(path);
   };
@@ -74,6 +48,15 @@ export default function Footer() {
                <FaFacebookF className="text-white" />
               </a>
               <a 
+                href="https://www.instagram.com/yourlifestylenavigator/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gradient-to-r from-[#f09433] via-[#e6683c] to-[#dc2743] rounded-full flex items-center justify-center hover:opacity-90 transition-opacity"
+                aria-label="Instagram Profile"
+              >
+               <FaInstagram className="text-white" />
+              </a>
+              <a 
                 href="https://www.amazon.com/stores/John-S.-Smith-Jr.-RN/author/B0C66RX7JD?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -90,7 +73,7 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li>
                 <button 
-                  onClick={() => handleNavigation("about")} 
+                  onClick={() => navigateToPage("/about-john")} 
                   className="hover:text-white transition-colors text-left"
                 >
                   About John
@@ -98,7 +81,7 @@ export default function Footer() {
               </li>
               <li>
                 <button 
-                  onClick={() => handleNavigation("next-framework")} 
+                  onClick={() => navigateToPage("/next-framework")} 
                   className="hover:text-white transition-colors text-left"
                 >
                   NEXT Framework
@@ -106,7 +89,7 @@ export default function Footer() {
               </li>
               <li>
                 <button 
-                  onClick={() => handleNavigation("services")} 
+                  onClick={() => navigateToPage("/services")} 
                   className="hover:text-white transition-colors text-left"
                 >
                   Services
@@ -114,7 +97,7 @@ export default function Footer() {
               </li>
               <li>
                 <button 
-                  onClick={() => handleNavigation("resources")} 
+                  onClick={() => navigateToPage("/resources")} 
                   className="hover:text-white transition-colors text-left"
                 >
                   Resources
@@ -122,7 +105,7 @@ export default function Footer() {
               </li>
               <li>
                 <button 
-                  onClick={() => handleNavigation("contact")} 
+                  onClick={() => navigateToPage("/start-here")} 
                   className="hover:text-white transition-colors text-left"
                 >
                   Start Here
@@ -146,8 +129,8 @@ export default function Footer() {
               <li>support@yourlifestylenavigator.com</li>
               <li>
                 <button 
-                  onClick={() => handleNavigation("contact")} 
-                  className="text-[#141e5b] hover:text-[#141e5b]/80 transition-colors font-semibold"
+                  onClick={() => navigateToPage("/start-here")} 
+                  className="text-white bg-[#141e5b] hover:bg-[#1a2b6b] transition-colors font-semibold px-4 py-2 rounded-lg mt-2"
                 >
                   Schedule Discovery Call
                 </button>
