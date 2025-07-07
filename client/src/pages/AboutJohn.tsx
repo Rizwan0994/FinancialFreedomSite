@@ -3,9 +3,17 @@ import PageHero from "@/components/PageHero";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import { useScrollToTop } from "@/hooks/use-scroll-to-top";
+import { updatePageSEO, SEO_DATA } from "@/lib/seo";
+import { useEffect } from "react";
 
 export default function AboutJohn() {
   useScrollToTop();
+
+  // Update SEO
+  useEffect(() => {
+    const seoData = SEO_DATA.aboutJohn;
+    updatePageSEO(seoData.title, seoData.description, seoData.keywords);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">

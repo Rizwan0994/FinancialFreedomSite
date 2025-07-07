@@ -8,11 +8,19 @@ import { useLocation } from "wouter";
 import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 import { FaDownload, FaStar, FaStarHalfAlt, FaRegStar, FaArrowLeft, FaBook, FaCalendarAlt, FaUser, FaAmazon, FaExternalLinkAlt } from 'react-icons/fa';
 import { useToast } from "@/hooks/use-toast";
+import { updatePageSEO, SEO_DATA } from "@/lib/seo";
 
 export default function Books() {
   useScrollToTop();
   const [, setLocation] = useLocation();
   const { toast } = useToast();
+  
+  // Update SEO
+  useEffect(() => {
+    const seoData = SEO_DATA.books;
+    updatePageSEO(seoData.title, seoData.description, seoData.keywords);
+  }, []);
+  
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState<{ pdfUrl: string; title: string } | null>(null);
   const [formData, setFormData] = useState({

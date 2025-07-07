@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import { useLocation } from "wouter";
 import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 import { FaCalendarCheck, FaMapMarkerAlt, FaBullseye, FaSearch, FaRocket, FaHandshake, FaQuoteLeft, FaPhone, FaEnvelope, FaClock, FaCheck, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { updatePageSEO, SEO_DATA } from "@/lib/seo";
 
 export default function StartHere() {
   useScrollToTop();
@@ -28,6 +29,10 @@ export default function StartHere() {
 
   // Preserve scroll position when component mounts
   useEffect(() => {
+    // Update SEO
+    const seoData = SEO_DATA.startHere;
+    updatePageSEO(seoData.title, seoData.description, seoData.keywords);
+
     // Get saved scroll position for this page
     const savedScrollPosition = sessionStorage.getItem('startHere-scroll-position');
     
@@ -222,7 +227,7 @@ export default function StartHere() {
     <div className="min-h-screen">
       <Navigation />
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#141e5b] via-[#0A1245] to-[#141e5b] text-white py-24 pt-20">
+      <section className="relative bg-gradient-to-br from-[#141e5b] via-[#0A1245] to-[#141e5b] text-white py-24 mt-20">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">

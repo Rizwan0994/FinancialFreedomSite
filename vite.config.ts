@@ -17,7 +17,20 @@ export default defineConfig({
     minify: 'esbuild',
     chunkSizeWarningLimit: 1000,
     target: 'esnext',
-    cssCodeSplit: true
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['framer-motion', '@tanstack/react-query'],
+          icons: ['react-icons/fa']
+        }
+      }
+    },
+    // Compress assets
+    assetsInlineLimit: 4096,
+    // Enable compression
+    reportCompressedSize: true
   },
   server: {
     port: 5173,

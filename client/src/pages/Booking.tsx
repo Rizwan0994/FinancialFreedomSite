@@ -2,11 +2,17 @@ import { useEffect } from "react";
 import { FaArrowLeft, FaCalendarAlt, FaClock, FaCheck } from 'react-icons/fa';
 import { useLocation } from "wouter";
 import { useScrollToTop } from "@/hooks/use-scroll-to-top";
+import { updatePageSEO, SEO_DATA } from "@/lib/seo";
 
 export default function Booking() {
   useScrollToTop();
   const [, setLocation] = useLocation();
+  
   useEffect(() => {
+    // Update SEO
+    const seoData = SEO_DATA.booking;
+    updatePageSEO(seoData.title, seoData.description, seoData.keywords);
+    
     // Load the form embed script
     const script = document.createElement('script');
     script.src = 'https://link.msgsndr.com/js/form_embed.js';
@@ -162,14 +168,14 @@ export default function Booking() {
               {/* Full-width Calendar Iframe */}
               <div className="w-full" style={{ minHeight: '700px' }}>
                 <iframe 
-                  src="https://api.leadconnectorhq.com/widget/booking/VrZxJK7ZdP1EWBJ8aWnc" 
+                  src="https://api.leadconnectorhq.com/widget/booking/TmrIFwvagACk9nEcDXg0" 
                   className="w-full border-0"
                   style={{ 
                     height: '700px',
                     minHeight: '600px'
                   }} 
                   scrolling="auto" 
-                  id="booking_calendar_fullpage"
+                  id="TmrIFwvagACk9nEcDXg0_1751913346439"
                   title="Book Your NEXT Strategy Session Calendar"
                   loading="lazy"
                 />

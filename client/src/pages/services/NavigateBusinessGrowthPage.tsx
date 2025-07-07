@@ -5,10 +5,18 @@ import { motion } from 'framer-motion';
 import { useLocation } from "wouter";
 import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 import { FaCompass, FaCheck, FaCalendarCheck, FaArrowRight, FaRocket } from 'react-icons/fa';
+import { updatePageSEO, SEO_DATA } from "@/lib/seo";
+import { useEffect } from "react";
 
 export default function NavigateBusinessGrowthPage() {
   useScrollToTop();
   const [, setLocation] = useLocation();
+
+  // Update SEO
+  useEffect(() => {
+    const seoData = SEO_DATA.navigateBusinessGrowth;
+    updatePageSEO(seoData.title, seoData.description, seoData.keywords);
+  }, []);
 
   const navigateToStartHere = () => {
     setLocation("/start-here");
