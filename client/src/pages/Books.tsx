@@ -26,6 +26,7 @@ export default function Books() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -85,7 +86,7 @@ export default function Books() {
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name.trim() || !formData.email.trim()) {
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
       toast({
         title: "Error",
         description: "Please fill in all required fields.",
@@ -105,6 +106,18 @@ export default function Books() {
       return;
     }
 
+    // Basic phone validation (allows various formats)
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$|^[\(]?[\d]{3}[\)]?[\s\-]?[\d]{3}[\s\-]?[\d]{4}$/;
+    const cleanPhone = formData.phone.replace(/[\s\-\(\)]/g, '');
+    if (cleanPhone.length < 10 || !phoneRegex.test(cleanPhone)) {
+      toast({
+        title: "Error",
+        description: "Please enter a valid phone number (at least 10 digits).",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -117,6 +130,7 @@ export default function Books() {
           firstName: formData.name,
           lastName: "",
           email: formData.email,
+          phone: formData.phone,
           source: "book_download",
         }),
       });
@@ -130,7 +144,7 @@ export default function Books() {
         });
 
         // Clear form
-        setFormData({ name: "", email: "" });
+        setFormData({ name: "", email: "", phone: "" });
         
         // Close modal
         setIsModalOpen(false);
@@ -167,7 +181,7 @@ export default function Books() {
   const handleModalClose = () => {
     setIsModalOpen(false);
     setSelectedBook(null);
-    setFormData({ name: "", email: "" });
+    setFormData({ name: "", email: "", phone: "" });
   };
 
   const renderStars = (rating: number) => {
@@ -382,6 +396,21 @@ export default function Books() {
                   placeholder="Enter your email address"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                  Phone Number *
+                </label>
+                <Input
+                  id="phone"
+                  type="tel"
+                  placeholder="Enter your phone number"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="w-full"
                   required
                 />

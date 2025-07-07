@@ -1,4 +1,4 @@
-import client3 from "@/assets/FFreedom-client.png";
+import client3 from "@/assets/About John image.jpg";
 import { FaHandshake, FaRocket, FaTree, FaUsers, FaStar, FaCalendarCheck, FaArrowRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
